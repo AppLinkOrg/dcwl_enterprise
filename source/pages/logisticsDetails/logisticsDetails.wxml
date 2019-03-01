@@ -1,0 +1,60 @@
+<view class='margin-top f-36 margin-left-30 txt-bold'>
+  订单信息</view>
+<view class=''>
+  <view class='content margin-top padding-20 margin-bottom-20' url='../details/details'>
+
+    <view class='flex-row padding-left-40 height-70 flex-center'>
+      <view class='f-32 txt-black'>运单号：1234567890</view>
+    </view>
+
+    <view class='flex-row padding-top-20'>
+      <image src='{{uploadpath}}resource/dot.png' class='icon-20 margin-10 margin-left'></image>
+      <view>
+        <view class='margin-10 f-32 txt-black'>装货地址：水电费离开加上了科技发达杀了快递费</view>
+      </view>
+    </view>
+
+    <view class='flex-row'>
+      <image src='{{uploadpath}}resource/dot-yellow.png' class='icon-20 margin-10 margin-left'></image>
+      <view>
+        <view class='margin-10 f-32 txt-black'>卸货地址：水电费离开加上了科技发达杀了快递费</view>
+      </view>
+    </view>
+
+    <view class='flex-row'>
+      <image src='{{uploadpath}}resource/cargo.png' class='icon-30 margin-10 margin-left'></image>
+      <view class='flex-row'>
+        <view class='margin-10 f-32 txt-black' style='width: 230rpx;'>货物：钢筋</view>
+        <view class='margin-10 f-32 txt-black'>重量：120吨</view>
+      </view>
+    </view>
+
+    <view class='flex-row'>
+      <image src='{{uploadpath}}resource/driver.png' class='icon-30 margin-10 margin-left'></image>
+
+      <view class='margin-10 f-32 txt-black'>司机：张三</view>
+
+    </view>
+
+    <view class='flex-row'>
+      <image src='{{uploadpath}}resource/id-card.png' class='icon-30 margin-10 margin-left'></image>
+
+      <view class='margin-10 f-32 txt-black'>身份证号码：545892336658996</view>
+
+    </view>
+
+    <view class='flex-row'>
+      <image src='{{uploadpath}}resource/palte.png' class='icon-30 margin-10 margin-left'></image>
+
+      <view class='margin-10 f-32 txt-black'>车牌：粤BA234356</view>
+
+    </view>
+
+    <view class='flex-center flex-row margin-bottom-40'>
+      <view class="flex-1"></view>
+      <button class='bg-blue txt-white text-center margin-20 margin-top-60 f-36' form-type='submit' style='width: 420rpx;'>一键复制订单信息</button>
+      <view class="flex-1"></view>
+    </view>
+
+  </view>
+</view>

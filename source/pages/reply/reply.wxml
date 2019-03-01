@@ -1,0 +1,61 @@
+<!--pages/reply/reply.wxml-->
+<view class='f-36 txt-black bg-white height-100 padding-left-40 flex-center flex-row txt-bold'>报价单</view>
+<view class="flex-row margin-top-20">
+  <view class="flex-1"></view>
+  <view class='content'>
+    <view class='flex-row padding-bottom-30 padding-top-20'>
+      <view class='margin-left'>
+        <view class='margin-10 txt-black f-32 flex-row height-70'>
+          <view class='txt-black f-32' style='width: 180rpx;'>取货地点：</view> 深圳市城西路22号</view>
+        <view class='margin-10 txt-black f-32 flex-row height-70'>
+          <view class='txt-black f-32' style='width: 180rpx;'>送达地点：</view> 深圳市城西路22号</view>
+        <view class='margin-10 txt-black f-32 flex-row height-70'>
+          <view class='txt-black f-32' style='width: 180rpx;'>路程：</view>150km</view>
+        <view class='margin-10 txt-black f-32 flex-row height-70'>
+          <view class='txt-black f-32' style='width: 180rpx;'>货物：</view>钢筋</view>
+        <view class='margin-10 txt-black f-32 flex-row height-70'>
+          <view class='txt-black f-32' style='width: 180rpx;'>载重：</view>50吨</view>
+      </view>
+
+    </view>
+
+    <view class='flex-row'>
+      <view class="flex-1"></view>
+      <view class='f-36 txt-black txt-bold'>报价回复</view>
+      <view class="flex-1"></view>
+    </view>
+    <form>
+      <view class='margin-left padding-top-40'>
+        <view class='margin-10 txt-black f-32 flex-row height-70'>
+          <view class='txt-black f-32' style='width: 180rpx;'>报价：</view>
+          <input class='input'></input>
+        </view>
+
+        <view class='margin-10 txt-black f-32 flex-row height-70'>
+          <view class='txt-black f-32' style='width: 180rpx;'>报价人：</view>
+          <input class='input'></input>
+        </view>
+
+        <view class='margin-10 txt-black f-32 flex-row height-70'>
+          <view class='txt-black f-32' style='width: 180rpx;'>联系方式：</view>
+          <input class='input'></input>
+        </view>
+
+        <view class='margin-10 txt-black f-32 flex-row height-150'>
+          <view class='txt-black f-32' style='width: 180rpx;'>补充说明：</view>
+          <textarea class='textarea input'></textarea>
+        </view>
+      </view>
+
+      <view class='flex-center flex-row '>
+        <view class="flex-1"></view>
+        <button class='bg-blue txt-white text-center margin-20 f-32' form-type='submit' style='width: 200rpx;'>确认回复</button>
+        <view class="flex-1"></view>
+      </view>
+    </form>
+  </view>
+
+
+
+  <view class="flex-1"></view>
+</view>

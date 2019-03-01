@@ -1,0 +1,24 @@
+/* pages/dispatch/dispatch.wxss */
+page {
+  background: #f6f6f6;
+}
+
+.top{
+  border: 1rpx solid BBBBBB;
+}
+.content {
+  width: 100%;
+  background: #fff;
+  border-radius: 20rpx;
+}
+.upload_img{
+  width: 350rpx;
+  height: 200rpx;
+  border: 1rpx solid #101010;
+}
+
+.voucher_img{
+  width: 248rpx;
+  height: 160rpx;
+  
+}

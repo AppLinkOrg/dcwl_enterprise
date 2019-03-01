@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/auth/auth",
+    "pages/login/login",
+    "pages/details/details",
+    "pages/logistics/logistics",
+    "pages/logisticsDetails/logisticsDetails",
+    "pages/receiptDetails/receiptDetails",
+    "pages/transportDetails/transportDetails",
+    "pages/my/my",
+    "pages/orderList/orderList",
+    "pages/reply/reply",
+    "pages/dispatch/dispatch",
+    "pages/addressselect/addressselect",
+    "pages/quoteferry/quoteferry",
+    "pages/inspectVehicle/inspectVehicle"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": true,
+    "navigationBarBackgroundColor": "#E51C23",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#4C556E",
+    "borderStyle": "black",
+    "backgroundColor": "#E51C23",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/home/home",
+        "iconPath": "images/icons/home-white.png",
+        "selectedIconPath": "images/icons/home-blue.png"
+      },
+      {
+        "text": "物流跟踪",
+        "pagePath": "pages/logistics/logistics",
+        "iconPath": "images/icons/truck.png",
+        "selectedIconPath": "images/icons/truck-blue.png"
+      },
+      {
+        "text": "个人中心",
+        "pagePath": "pages/my/my",
+        "iconPath": "images/icons/personal.png",
+        "selectedIconPath": "images/icons/personal-blue.png"
+      }
+    ]
+  }
+}

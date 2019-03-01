@@ -1,0 +1,13 @@
+<!--pages/inspectVehicle/inspectVehicle.wxml-->
+<view class="flex-row ">
+  <view class="flex-1"></view>
+  <view class=''>
+    <view class='content margin-top padding-20 margin-bottom-20'>
+      <view class='flex-row padding-left-40 height-70 flex-center'>
+        <view class='f-36 txt-red'>注意</view>
+      </view>
+      <view class='f-32 txt-black padding-20'>车辆粤A458745年检即将到期，到期时间剩余30天，请尽快对车辆进行年检！</view>
+    </view>
+  </view>
+  <view class="flex-1"></view>
+</view>

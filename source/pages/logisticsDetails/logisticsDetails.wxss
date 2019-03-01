@@ -1,0 +1,40 @@
+/* pages/logisticsDetails/logisticsDetails.wxss */
+page {
+  background: #f6f6f6;
+}
+
+.top {
+  border-bottom: 1rpx solid #bbb;
+}
+
+.top_title {
+  width: 100%;
+  color: #6a6a6a;
+  background: #fff;
+}
+
+.to-white {
+  color: #e51c23;
+}
+
+.bg-primary {
+  background: #e51c23;
+  margin-top: 5rpx;
+}
+
+.content {
+  background: #fff;
+  border-radius: 20rpx;
+}
+
+
+.time {
+  height: 130rpx;
+  border-top: 2rpx solid #bbb;
+  color: #000;
+}
+
+.voucher_img{
+  width: 248rpx;
+  height: 160rpx;
+}

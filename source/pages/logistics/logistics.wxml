@@ -1,0 +1,153 @@
+<view class='flex-row flex-center top_title'>
+  <view class='catitem flex-1 bg-white flex-row flex-column padding-30' wx:key="k" bindtap='bindcontact'>
+    <view class=' text-center  txt-gray {{ctt==1?"to-white":"" }} top   txt-bold' bindtap='bindcontact'>待取货</view>
+    <view style='height:4rpx;width:120rpx;' class="{{ctt==1?'bg-primary':''}}"></view>
+  </view>
+
+  <view class='catitem flex-1 bg-white flex-row flex-column padding-30' wx:key="k" bindtap='bindwaitcompleted'>
+    <view class=' text-center  txt-gray {{ctt==2?"to-white":""}} top   txt-bold' bindtap='bindwaitcompleted'>运输中</view>
+    <view style='height:4rpx;width:120rpx;' class="{{ctt==2?'bg-primary':''}}"></view>
+  </view>
+
+  <view class='catitem flex-1 bg-white flex-row flex-column padding-30' wx:key="k" bindtap='bindcompleted'>
+    <view class=' text-center  txt-gray {{ctt==3?"to-white":""}} top   txt-bold' bindtap='bindcompleted'>已完成</view>
+    <view style='height:4rpx;width:120rpx;' class="{{ctt==3?'bg-primary':''}}"></view>
+  </view>
+
+</view>
+
+<view class="flex-row margin-top-100" wx:if="{{ctt==1}}">
+
+  <view class="flex-1"></view>
+  <view class=''>
+    <view class='content margin-top padding-20 margin-bottom-20' url='../details/details' wx:for="{{2}}">
+
+      <view class='flex-row padding-left-40 height-70 flex-center'>
+        <view class='f-32 txt-black'>运单号：1234567890</view>
+      </view>
+
+      <view class='flex-row padding-top-20'>
+        <image src='{{uploadpath}}resource/dot.png' class='icon-30 margin-10 margin-left'></image>
+        <view>
+          <view class='margin-10 f-32 txt-black'>装货地址：水电费离开加上了科技发达杀了快递费</view>
+        </view>
+      </view>
+
+      <view class='flex-row'>
+        <image src='{{uploadpath}}resource/dot-yellow.png' class='icon-30 margin-10 margin-left'></image>
+        <view>
+          <view class='margin-10 f-32 txt-black'>卸货地址：水电费离开加上了科技发达杀了快递费</view>
+        </view>
+      </view>
+
+      <view class='flex-row'>
+        <image src='{{uploadpath}}resource/cargo.png' class='icon-30 margin-10 margin-left'></image>
+        <view class='flex-row'>
+          <view class='margin-10 f-32 txt-black' style='width: 230rpx;'>货物：钢筋</view>
+          <view class='margin-10 f-32 txt-black'>重量：120吨</view>
+        </view>
+      </view>
+
+      <view class='flex-row'>
+        <image src='{{uploadpath}}resource/driver.png' class='icon-30 margin-10 margin-left'></image>
+
+        <view class='margin-10 f-32 txt-black'>司机：张三</view>
+      </view>
+
+      <view class='flex-row'>
+        <image src='{{uploadpath}}resource/id-card.png' class='icon-30 margin-10 margin-left'></image>
+
+        <view class='margin-10 f-32 txt-black'>身份证号码：545892336658996</view>
+
+      </view>
+
+      <view class='flex-row'>
+        <image src='{{uploadpath}}resource/palte.png' class='icon-30 margin-10 margin-left'></image>
+
+        <view class='margin-10 f-32 txt-black'>车牌：粤BA234356</view>
+
+      </view>
+    </view>
+  </view>
+  <view class="flex-1"></view>
+
+</view>
+
+<view class="flex-row margin-top-100" wx:if="{{ctt==2}}">
+  <view class="flex-1"></view>
+  <view class=''>
+    <view class='content margin-top padding-20 margin-bottom-20 '  wx:for='{{2}}'>
+      <view class='flex-row padding-left-40 height-50 flex-center'>
+        <view class='f-32 txt-black'>运单号：1234567890</view>
+      </view>
+      <view class='flex-row padding-top-20'>
+        <image src='{{uploadpath}}resource/dot.png' class='icon-30 margin-10 margin-left'></image>
+        <view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;'>信通大夏</view>
+          <view class='margin-10 flex-1' style='color: #858A96;'>信通大夏</view>
+        </view>
+      </view>
+      <view class='flex-row'>
+        <image src='{{uploadpath}}resource/dot-yellow.png' class='icon-30 margin-10 margin-left'></image>
+        <view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;'>和平里东街13号</view>
+          <view class='margin-10 flex-1' style='color: #858A96;'>东街8号1号楼</view>
+        </view>
+      </view>
+
+      <view class='flex-row'>
+
+        <view class='margin-left margin-10 txt-black f-32 flex-row flex-center height-70'>
+          <view class='txt-black f-32' style='width: 230rpx;'>订单时间：</view>2019-02-05 14:00</view>
+
+      </view>
+
+      <view class='height-120 flex-row'>
+        <view class="flex-1"></view>
+        <view class='flex-center flex-row '>
+          <view class="flex-1"></view>
+          <button class='bg-blue txt-white text-center margin-20 f-32' bindtap='logistics' style='width: 200rpx;'>查看物流</button>
+          <view class="flex-1"></view>
+        </view>
+        <view class="flex-1"></view>
+        <view class='flex-center flex-row '>
+          <view class="flex-1"></view>
+          <button class='bg-blue txt-white text-center margin-20 f-32' bindtap='order' style='width: 250rpx;'>查看订单信息</button>
+          <view class="flex-1"></view>
+        </view>
+        <view class="flex-1"></view>
+      </view>
+    </view>
+  </view>
+  <view class="flex-1"></view>
+</view>
+
+<view class="flex-row margin-top-100" wx:if="{{ctt==3}}">
+  <view class="flex-1"></view>
+  <view class='' >
+    <navigator class='content margin-top padding-20 margin-bottom-20' url='../transportDetails/transportDetails?ctt=3' wx:for='{{3}}'>
+      <view class='flex-row padding-left-40 height-70 flex-center'>
+        <view class='f-32 txt-black'>运单号：1234567890</view>
+      </view>
+       <view class='flex-row padding-left-40 height-70 flex-center'>
+        <view class='f-32 txt-black'>订单时间：2019-05-06  14:00</view>
+      </view>
+
+      <view class='flex-row padding-top-10'>
+        <image src='{{uploadpath}}resource/dot.png' class='icon-30 margin-10 margin-left'></image>
+        <view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;'>信通大夏</view>
+          <!-- <view class='margin-10 flex-1' style='color: #858A96;'>信通大夏</view> -->
+        </view>
+      </view>
+      <view class='flex-row'>
+        <image src='{{uploadpath}}resource/dot-yellow.png' class='icon-30 margin-10 margin-left'></image>
+        <view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;'>和平里东街13号</view>
+          <!-- <view class='margin-10 flex-1' style='color: #858A96;'>东街8号1号楼</view> -->
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="flex-1"></view>
+</view>

@@ -13,7 +13,7 @@ export class AppBase {
   static QQMAPKEY = "IDVBZ-TSAKD-TXG43-H442I-74KVK-6LFF5";
   static UserInfo = {};
   static InstInfo = {};
-  unicode = "ferryexpress";
+  unicode = "yyh";
   needauth = true;
   pagetitle = null;
   app = null;
@@ -218,17 +218,24 @@ export class AppBase {
                 AppBase.UserInfo.session_key = data.session_key;
                 console.log(AppBase.UserInfo);
                 ApiConfig.SetToken(data.openid);
+                memberapi.update(AppBase.UserInfo, () => {
+
+                  console.log(AppBase.UserInfo);
+                  that.Base.setMyData({ UserInfo: AppBase.UserInfo });
+
+                  that.checkPermission();
+
+                });
                 console.log("goto update info");
 
-
                 //that.Base.gotoOpenUserInfoSetting();
-                if (this.Base.needauth == true) {
-                  wx.redirectTo({
-                    url: '/pages/auth/auth',
-                  })
-                } else {
-                  that.onMyShow();
-                }
+                // if (this.Base.needauth == true) {
+                //   wx.redirectTo({
+                //     url: '/pages/auth/auth',
+                //   })
+                // } else {
+                //   that.onMyShow();
+                // }
               });
               //that.getAddress();
             }
@@ -255,9 +262,21 @@ export class AppBase {
     var memberapi = new MemberApi();
     var that = this;
     memberapi.info({}, (info) => {
-
-      this.Base.setMyData({ memberinfo: info });
-      that.onMyShow();
+      console.log("info tt");
+      console.log(info);
+      console.log(info);
+      console.log(info);
+      console.log(info);
+      if (info != null
+        && (info.mobile == undefined || info.mobile == "")
+        && this.Base.needauth == true) {
+        wx.reLaunch({
+          url: '/pages/login/login',
+        })
+      } else {
+        this.Base.setMyData({ memberinfo: info });
+        that.onMyShow();
+      }
 
     });
   }

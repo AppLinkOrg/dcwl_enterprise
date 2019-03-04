@@ -33,6 +33,9 @@ class Content extends AppBase {
     quoteferryapi.list({ status: 1 }, (ret) => {
       this.Base.setMyData({ list_1: ret });
     });
+    quoteferryapi.list({ status: 3 }, (ret) => {
+      this.Base.setMyData({ list_3: ret });
+    });
   }
 
   changeCurrentTab(e) {
@@ -58,9 +61,10 @@ class Content extends AppBase {
     })
   }
 
-  goReply(){
+  goReply(e){
+    //console.log(e)
     wx.navigateTo({
-      url: '/pages/reply/reply',
+      url: '/pages/reply/reply?id='+e.currentTarget.id,
     })
   }
 

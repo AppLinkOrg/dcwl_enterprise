@@ -33,17 +33,17 @@
   <view class='flex-row tabs'>
     <view class='flex-1 tab  flex-row ' bindtap='changeTab' id="0">
       <view class='flex-1'></view>
-      <view class='txt-light tabtext  {{currenttab==0?"active":""}}'>新订单 {{list_2.length}}</view>
+      <view class='txt-light tabtext  {{currenttab==0?"active":""}}'>新订单 {{list_1.length}}</view>
       <view class='flex-1'></view>
     </view>
     <view class='flex-1 tab  flex-row ' bindtap='changeTab' id="1">
       <view class='flex-1'></view>
-      <view class='txt-light tabtext {{currenttab==1?"active":""}}'>已回复 {{list_1.length}}</view>
+      <view class='txt-light tabtext {{currenttab==1?"active":""}}'>已回复 {{list_2.length}}</view>
       <view class='flex-1'></view>
     </view>
     <view class='flex-1 tab  flex-row ' bindtap='changeTab' id="2">
       <view class='flex-1'></view>
-      <view class='txt-light tabtext {{currenttab==2?"active":""}}'>待处理 {{list_1.length}}</view>
+      <view class='txt-light tabtext {{currenttab==2?"active":""}}'>待处理 {{list_3.length}}</view>
       <view class='flex-1'></view>
     </view>
   </view>
@@ -51,37 +51,37 @@
 
 
   <view class='padding-20' wx:if="{{currenttab==0}}">
-    <block wx:if="{{list_2.length==0}}">
+    <block wx:if="{{list_1.length==0}}">
       <view class='h6 txt-gray'>暂无新的订单</view>
     </block>
     <!-- <block> -->
-    <block wx:if="{{list_2.length>0}}">
+    <block wx:if="{{list_1.length>0}}">
       <view class="flex-row ">
         <view class="flex-1"></view>
         <view class=''>
-          <view class='content margin-20' wx:for='{{2}}'>
+          <view class='content margin-20' wx:key='item' wx:for='{{list_1}}'>
             <view class='flex-row  margin-left height-70'>
-              <view class='margin-10 f-36 flex-1' style='color: #000;'>取货地点：深圳市城西路22号</view>
+              <view class='margin-10 f-32 flex-1' style='color: #000;'>取货地点：{{item.routestr}}</view>
             </view>
             <view class='flex-row margin-left height-70'>
-              <view class='margin-10 f-36 flex-1' style='color: #000;'>取货地点：深圳市城西路22号</view>
+              <view class='margin-10 f-32 flex-1' style='color: #000;'>取货地点：{{item.routestr}}</view>
             </view>
             <view class='flex-row'>
               <view class='margin-left'>
                 <view class='margin-10 txt-black f-32 flex-row height-50'>
-                  <view class='txt-black f-32' style='width: 180rpx;'>路程：</view> 150km
+                  <view class='txt-black f-32' style='width: 160rpx;'>路程：</view>{{item.distance}}
                 </view>
                 <view class='margin-10 txt-black f-32 flex-row height-50'>
-                  <view class='txt-black f-32' style='width: 180rpx;'>货物：</view>钢筋
+                  <view class='txt-black f-32' style='width: 160rpx;'>货物：</view>{{item.goodsstr}}
                 </view>
               </view>
             </view>
             <view class='flex-row margin-left margin-bottom-20'>
               <view class='margin-10 txt-black f-32 flex-row flex-center height-50'>
-                <view class='txt-black f-32' style='width: 180rpx;'>载重：</view>50吨
+                <view class='txt-black f-32' style='width: 160rpx;'>载重：</view>{{item.weight}}
               </view>
               <view class="flex-1"></view>
-              <view class='bg-blue txt-white f-32  flex-row flex-center height-70 margin-right-20' style='width: 180rpx;' bindtap='goReply'>
+              <view class='bg-blue txt-white f-32  flex-row flex-center height-70 margin-right-20' style='width: 180rpx;' bindtap='goReply' id='{{item.id}}'>
                 <view class="flex-1"></view>
                 回复
                 <view class="flex-1"></view>
@@ -96,46 +96,46 @@
   </view>
 
   <view class='padding-20' wx:if="{{currenttab==1}}">
-    <block wx:if="{{list_1.length==0}}">
+    <block wx:if="{{list_2.length==0}}">
       <view class='h6 txt-gray'>暂无已回复的订单</view>
     </block>
-    <block wx:if="{{list_1.length>0}}">
+    <block wx:if="{{list_2.length>0}}">
     <!-- <block> -->
       <view class="flex-row ">
         <view class="flex-1"></view>
         <view class=''>
-          <view class='content margin-20' wx:for='{{2}}'>
+          <view class='content margin-20' wx:for='{{list_2}}'>
             <view class='flex-row'>
               <view class='margin-left padding-top-10'>
 
                 <view class=' txt-black f-32 flex-row height-50'>
-                  <view class='txt-black f-32' style='width: 180rpx;'>订单号：</view> 244548450
+                  <view class='txt-black f-32' style='width: 180rpx;'>订单号：</view> {{item.orderno}}
                 </view>
                 <view class=' txt-black f-32 flex-row height-50'>
-                  <view class='txt-black f-32' style='width: 180rpx;'>订单时间：</view>2019-02-03 14:23
+                  <view class='txt-black f-32' style='width: 180rpx;'>订单时间：</view>{{item.submit_time}}
                 </view>
                 <view class=' txt-black f-32 flex-row height-50'>
-                  <view class='txt-black f-32' style='width: 180rpx;'>取货地点：</view>深圳市城西路22号
+                  <view class='txt-black f-32' style='width: 180rpx;'>取货地点：</view>{{item.routestr}}
                 </view>
                 <view class=' txt-black f-32 flex-row height-50'>
-                  <view class='txt-black f-32' style='width: 180rpx;'>取货地点：</view>深圳市城西路22号
+                  <view class='txt-black f-32' style='width: 180rpx;'>取货地点：</view>{{item.routestr}}
                 </view>
                 <view class=' txt-black f-32 flex-row height-50'>
-                  <view class='txt-black f-32' style='width: 180rpx;'>路程：</view> 150km
+                  <view class='txt-black f-32' style='width: 180rpx;'>路程：</view>{{item.distance}}
                 </view>
                 <view class=' txt-black f-32 flex-row height-50'>
-                  <view class='txt-black f-32' style='width: 180rpx;'>货物：</view>钢筋
+                  <view class='txt-black f-32' style='width: 180rpx;'>货物：</view>{{item.goodsstr}}
                 </view>
                 <view class=' txt-black f-32 flex-row  height-50'>
-                  <view class='txt-black f-32' style='width: 180rpx;'>载重：</view>50吨
+                  <view class='txt-black f-32' style='width: 180rpx;'>载重：</view>{{item.weight}}
                 </view>
                 <view class=' txt-black f-32 flex-row height-50'>
-                  <view class='txt-black f-32' style='width: 180rpx;'>回复时间：</view>2019-02-03 14:23
+                  <view class='txt-black f-32' style='width: 180rpx;'>回复时间：</view>{{item.weight}}
                 </view>
               </view>
             </view>
             <view class=' txt-black f-32 flex-row height-70 offer flex-center'>
-              <view class='txt-black  f-32 margin-left' style='width: 180rpx;'>回复报价：</view>5550元
+              <view class='txt-black  f-32 margin-left' style='width: 180rpx;'>回复报价：</view>{{item.weight}}元
               <view class="flex-1"></view>
               <view class='txt-red txt-bold margin-right-20'>等待客户同意</view>
             </view>
@@ -147,11 +147,11 @@
   </view>
 
   <view class='padding-20' wx:if="{{currenttab==2}}">
-    <block wx:if="{{list_1.length==0}}">
+    <block wx:if="{{list_3.length==0}}">
       <view class='h6 txt-gray'>暂无等待处理的订单</view>
     </block>
     <!-- <block> -->
-      <block wx:if="{{list_1.length>0}}">
+      <block wx:if="{{list_3.length>0}}">
       <view class="flex-row ">
         <view class="flex-1"></view>
         <view class=''>

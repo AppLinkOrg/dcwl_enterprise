@@ -30,9 +30,9 @@ export class AppBase {
     //ApiConfig.SetToken("10e991a4ca7a93c60794628c11edaea3");
   }
   setPageTitle(instinfo) {
-    wx.setNavigationBarTitle({
-      title: instinfo.name,
-    })
+    // wx.setNavigationBarTitle({
+    //   title: instinfo.name,
+    // })
   }
   generateBodyJson() {
     var base = this;
@@ -191,19 +191,14 @@ export class AppBase {
                 console.log(AppBase.UserInfo);
                 ApiConfig.SetToken(data.openid);
                 console.log("goto update info");
-                //this.loadtabtype();
-
-
+          
                 memberapi.update(AppBase.UserInfo, () => {
-
                   console.log(AppBase.UserInfo);
                   that.Base.setMyData({ UserInfo: AppBase.UserInfo });
-
                   that.checkPermission();
-
                 });
 
-                //that.Base.getAddress();
+             
               });
             },
             fail: userloginres => {
@@ -228,16 +223,8 @@ export class AppBase {
                 });
                 console.log("goto update info");
 
-                //that.Base.gotoOpenUserInfoSetting();
-                // if (this.Base.needauth == true) {
-                //   wx.redirectTo({
-                //     url: '/pages/auth/auth',
-                //   })
-                // } else {
-                //   that.onMyShow();
-                // }
               });
-              //that.getAddress();
+              
             }
           });
 
@@ -250,8 +237,7 @@ export class AppBase {
       } else {
         that.Base.setMyData({ UserInfo: AppBase.UserInfo });
       }
-      //this.loadtabtype();
-
+    
       that.Base.setMyData({ UserInfo: AppBase.UserInfo });
 
       that.checkPermission();

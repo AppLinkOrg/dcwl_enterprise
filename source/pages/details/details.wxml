@@ -3,19 +3,19 @@
   <view class=''>
     <view class='content margin-top-20 padding-20 margin-bottom-20'>
       <view class='flex-row padding-left-20 height-50 flex-center'>
-        <view class='f-32 txt-black'>运单号：1234567890</view>
+        <view class='f-32 txt-black'>运单号：{{datas.orderno}}</view>
       </view>
       <view class='flex-row padding-left-20 height-50 flex-center'>
-        <view class='f-32 txt-black'>订单时间：2019-05-06 14:00</view>
+        <view class='f-32 txt-black'>订单时间：{{datas.submit_time}}</view>
       </view>
       <view class='flex-row padding-left-20 height-50 flex-center'>
-        <view class='f-32 txt-black'>车牌号： 粤B 8888888</view>
+        <view class='f-32 txt-black'>车牌号：{{datas.vehicle_plate_number}}</view>
       </view>
       <view class='flex-row padding-left-20 height-50 flex-center'>
-        <view class='f-32 txt-black'>司机： 13812345678</view>
+        <view class='f-32 txt-black'>司机：{{datas.driver_name}}</view>
       </view>
       <view class='flex-row padding-left-20 height-50 flex-center'>
-        <view class='f-32 txt-black'>司机电话： 13812345678</view>
+        <view class='f-32 txt-black'>司机电话：{{datas.orderno}}</view>
       </view>
     </view>
 
@@ -28,15 +28,15 @@
         <view>
           <view class='flex-row '>
             <image src='{{uploadpath}}resource/loading.png' class='icon-20 margin-10 margin-left'></image>
-            <view class='margin-10 f-32 flex-1' style='color: #000;'>广东省深圳市宝安区宝安路【鹤州仓】</view>
+            <view class='margin-10 f-32 flex-1' style='color: #000;'>{{datas.start_address}}</view>
           </view>
           <view class='flex-row '>
             <image src='{{uploadpath}}resource/cargo.png' class='icon-20 margin-10 margin-left'></image>
-            <view class='margin-10 f-32 flex-1' style='color: #000;'>钢材 60吨</view>
+            <view class='margin-10 f-32 flex-1' style='color: #000;'>{{datas.goodsstr}}</view>
           </view>
           <view class='flex-row '>
             <image src='{{uploadpath}}resource/unload.png' class='icon-20 margin-10 margin-left'></image>
-            <view class='margin-10 f-32 flex-1' style='color: #000;'>广东省深圳市宝安区宝安路【鹤州仓】</view>
+            <view class='margin-10 f-32 flex-1' style='color: #000;'>{{datas.end_address}}</view>
           </view>
         </view>
       </view>
@@ -51,12 +51,12 @@
         <view>
           <view class='flex-row '>
             <image src='{{uploadpath}}resource/quhuo.png' class='icon-20 margin-10 margin-left'></image>
-            <view class='margin-10 f-32 flex-1' style='color: #000;'>取货时间： 2018-4-20 15：14</view>
+            <view class='margin-10 f-32 flex-1' style='color: #000;'>取货时间：{{datas.pickupgoods_time}}</view>
           </view>
 
           <view class='flex-row '>
             <image src='{{uploadpath}}resource/songhuo.png' class='icon-20 margin-10 margin-left'></image>
-            <view class='margin-10 f-32 flex-1' style='color: #000;'>到货时间： 2018-4-21 08：00</view>
+            <view class='margin-10 f-32 flex-1' style='color: #000;'>到货时间： {{datas.order_end_time}}</view>
           </view>
 
 
@@ -65,7 +65,7 @@
 
       <view class='flex-row flex-center padding-left-40 height-100 time3 margin-top-20'>
         <image src='{{uploadpath}}resource/songhuo.png' class='icon-20 margin-10 margin-left'></image>
-        <view class='margin-10 f-32 flex-1' style='color: #000;'>要求取货时间： 2018-4-20 15：14</view>
+        <view class='margin-10 f-32 flex-1' style='color: #000;'>要求取货时间： {{datas.user_pickupgoods_time}}</view>
       </view>
 
       <view class='flex-row padding-top-20'>
@@ -73,7 +73,7 @@
         <view class='margin-10 f-36 flex-1' style='color: #000;'>备注</view>
       </view>
       <view class='flex-row flex-center padding-left-40   '>
-        <view class='margin-10 f-32 flex-1' style='color: #000;'>货物散包、弯支、烂锈、重量不符，必须拍照与我方司机确认后方可装货发车</view>
+        <view class='margin-10 f-32 flex-1' style='color: #000;'>{{datas.remark}}</view>
       </view>
 
     </view>
@@ -86,14 +86,14 @@
       <view class='flex-row padding-left-40  flex-center'>
         <view style='width: 100%;'>
           <view class='flex-row height-70'>
-            <view class='txt-black'>平板车  粤BC888</view>
+            <view class='txt-black'>{{datas.vehicle_id_name}}</view>
             <view class="flex-1"></view>
-            <view class='txt-black'>40元/吨</view>
+            <view class='txt-black'></view>
           </view>
           <view class='flex-row height-70 '>
             <view class='txt-red txt-bold'>总计：</view>
             <view class="flex-1"></view>
-            <view class='txt-red txt-bold'>4800元</view>
+            <view class='txt-red txt-bold'>{{datas.quoteamount}}元</view>
           </view>
         </view>
       </view>

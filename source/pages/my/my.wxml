@@ -1,15 +1,15 @@
 <view class='text-center memberinfo'>
   <view>
-    <image class='avatar' src='{{UserInfo.avatarUrl}}'></image>
+    <image class='avatar' src='{{uploadpath}}inst/{{logobackimg}}'></image>
   </view>
   <view class='nickname'>
-    {{UserInfo.nickName}}
+    {{memberinfo.name}},欢迎使用
   </view>
 </view>
 
 
 
-<view class='white-block block' style='margin-top:40rpx;'>
+<view class='white-block block' style='margin-top:40rpx;' wx:if='{{memberinfo.userrole_id == 2}}'>
   <navigator url='../orderList/orderList' class='item item-split txt-black'>全部订单</navigator>
   <navigator url='../quoteferry/quoteferry' class='item item-split txt-black'>直接派单</navigator>
   <navigator url='../inspectVehicle/inspectVehicle' class='item item-split txt-black'>车辆年检提醒</navigator>

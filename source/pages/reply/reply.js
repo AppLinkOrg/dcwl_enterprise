@@ -28,7 +28,7 @@ class Content extends AppBase {
     var quoteferryapi = new QuoteferryApi();
 
     quoteferryapi.info({ id: options.id }, (ret) => {
-      //console.log(ret)
+      console.log(ret)
       this.Base.setMyData({
         data: ret
       });
@@ -39,19 +39,11 @@ class Content extends AppBase {
     var that = this;
     var instapi = new InstApi();
    
-    instapi.indexbanner({}, (indexbanner) => {
-      that.Base.setMyData({
-        indexbanner: indexbanner
-      });
-    });
+  
     instapi.info({}, (info) => {
       that.Base.setMyData(info);
     });
-    instapi.servicelist({}, (servicelist) => {
-      that.Base.setMyData({
-        servicelist: servicelist
-      });
-    });
+   
     
   }
 
@@ -73,7 +65,7 @@ class Content extends AppBase {
             remark: data.remark
           }, (ret) => {
            // console.log(ret)
-            wx.redirectTo({
+            wx.switchTab({
               url: '../home/home',
             })
            

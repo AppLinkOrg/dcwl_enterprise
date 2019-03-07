@@ -4,35 +4,35 @@
   <view class='content margin-top padding-20 margin-bottom-20' url='../details/details'>
 
     <view class='flex-row padding-left-40 height-70 flex-center'>
-      <view class='f-32 txt-black'>运单号：1234567890</view>
+      <view class='f-32 txt-black'>运单号：{{info.orderno}}</view>
     </view>
 
     <view class='flex-row padding-top-20'>
       <image src='{{uploadpath}}resource/dot.png' class='icon-20 margin-10 margin-left'></image>
       <view>
-        <view class='margin-10 f-32 txt-black'>装货地址：水电费离开加上了科技发达杀了快递费</view>
+        <view class='margin-10 f-32 txt-black'>装货地址：{{info.start_address}}</view>
       </view>
     </view>
 
     <view class='flex-row'>
       <image src='{{uploadpath}}resource/dot-yellow.png' class='icon-20 margin-10 margin-left'></image>
       <view>
-        <view class='margin-10 f-32 txt-black'>卸货地址：水电费离开加上了科技发达杀了快递费</view>
+        <view class='margin-10 f-32 txt-black'>卸货地址：{{info.end_address}}</view>
       </view>
     </view>
 
     <view class='flex-row'>
       <image src='{{uploadpath}}resource/cargo.png' class='icon-30 margin-10 margin-left'></image>
       <view class='flex-row'>
-        <view class='margin-10 f-32 txt-black' style='width: 230rpx;'>货物：钢筋</view>
-        <view class='margin-10 f-32 txt-black'>重量：120吨</view>
+        <view class='margin-10 f-32 txt-black' style='width: 230rpx;'>货物：{{info.goodsstr}}</view>
+        <view class='margin-10 f-32 txt-black'>重量：{{info.weight}}</view>
       </view>
     </view>
 
     <view class='flex-row'>
       <image src='{{uploadpath}}resource/driver.png' class='icon-30 margin-10 margin-left'></image>
 
-      <view class='margin-10 f-32 txt-black'>司机：张三</view>
+      <view class='margin-10 f-32 txt-black'>司机：{{info.driver_name}}</view>
 
     </view>
 
@@ -46,7 +46,7 @@
     <view class='flex-row'>
       <image src='{{uploadpath}}resource/palte.png' class='icon-30 margin-10 margin-left'></image>
 
-      <view class='margin-10 f-32 txt-black'>车牌：粤BA234356</view>
+      <view class='margin-10 f-32 txt-black'>车牌：{{info.vehicle_id_name}}</view>
 
     </view>
 

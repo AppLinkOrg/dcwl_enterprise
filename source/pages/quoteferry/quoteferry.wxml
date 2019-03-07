@@ -125,12 +125,28 @@
             </view>
           </view>
         </view>
+
+        <view class='padding-20 ' wx:if="{{userrole_id==2}}">
+
+          <view class='flex-row flex-center padding-20' style='padding-top:0rpx;'>
+            <view>
+              <image class='icon' src='{{uploadpath}}resource/user.png'></image>
+            </view>
+            <view class='flex-1' style='margin-left:10rpx;margin-right:10rpx;'>
+              <input class='h6' style='width:100%' auto-height='{{true}}' placeholder='总价' maxlength='10' placeholder-style='color:#aaa' value='{{quoteamount}}' bindinput='quoteamountChange'></input>
+            </view>
+          </view>
+        </view>
       </view>
       <view>
-      <form bindsubmit="confirmQuote" bindreset="formReset" report-submit="{{true}}">
+      <form bindsubmit="confirmQuote" bindreset="formReset" report-submit="{{true}}" wx:if='{{memberinfo.userrole_id==2}}'>
         <button type='primary' class='margin-top' form-type='submit' wx:if="{{id==undefined}}" >前往派单</button>
         <button type='primary' class='margin-top bg-red' form-type='submit' wx:if="{{id!=undefined}}" >处理中，重新提交</button>
-        </form>
+      </form>
+      <form bindsubmit="confirmQuote" bindreset="formReset" report-submit="{{true}}" wx:else>
+        <button type='primary' class='margin-top' form-type='submit' wx:if="{{id==undefined}}" >马上获取报价</button>
+        <button type='primary' class='margin-top bg-red' form-type='submit' wx:if="{{id!=undefined}}" >处理中，重新提交</button>
+      </form>
       </view>
       <view class='text-center margin-top-10 h6'>
         <label class='txt-white '>报价服务由</label>

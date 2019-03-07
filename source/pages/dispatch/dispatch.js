@@ -3,78 +3,104 @@ import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { QuoteferryApi } from "../../apis/quoteferry.api.js";
+import { VehicleApi } from '../../apis/vehicle.api';
+import { MemberApi } from '../../apis/member.api';
+import { DriverApi } from '../../apis/driver.api';
+
 
 class Content extends AppBase {
   constructor() {
     super();
   }
   onLoad(options) {
+    console.log(options)
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ currenttab: 0 });
+    this.Base.setMyData({ currenttab: 0});
+
+    var quoteferryapi = new QuoteferryApi();
+    quoteferryapi.info({ id: options.id }, (ret) => {
+      console.log(ret)
+      this.Base.setMyData({ data:ret });
+    });
+
   }
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
-    instapi.indexbanner({}, (indexbanner) => {
-      that.Base.setMyData({ indexbanner: indexbanner });
-    });
+    
     instapi.info({}, (info) => {
       that.Base.setMyData(info);
     });
-    instapi.servicelist({}, (servicelist) => {
-      that.Base.setMyData({ servicelist: servicelist });
+    
+    var vehicleApi = new VehicleApi();
+    vehicleApi.list({},(ret)=>{
+      console.log(ret)
+      that.Base.setMyData({vehicle:ret});
     });
-    var quoteferryapi = new QuoteferryApi();
-    quoteferryapi.list({ status: 2 }, (ret) => {
-      this.Base.setMyData({ list_2: ret });
+
+    var driverApi = new DriverApi();
+    driverApi.list({}, (ret) => {
+      console.log(ret)
+      that.Base.setMyData({ driver: ret });
     });
-    quoteferryapi.list({ status: 1 }, (ret) => {
-      this.Base.setMyData({ list_1: ret });
-    });
+  
   }
 
-  changeCurrentTab(e) {
-    console.log(e);
-    this.Base.setMyData({ currenttab: e.detail.current });
+  bindPickerDriver(e) {
+    var that = this;
+    console.log(e)
+    that.Base.setMyData({ driver_index: e.detail.value });
+    var driver_id = that.Base.getMyData().driver[e.detail.value].id
+    console.log(driver_id)
+    that.Base.setMyData({ driver_id: driver_id });
   }
-  changeTab(e) {
-    console.log(e);
-    // if (e.currentTarget.id == 0) {
-    //   wx.navigateTo({
-    //     url: '../handleOrder/handleOrder',
-    //   })
-    // } else {
-    //   wx.navigateTo({
-    //     url: '../inquiryPrice/inquiryPrice',
-    //   })
-    // }
-    this.Base.setMyData({ currenttab: e.currentTarget.id });
+
+
+
+  bindPickerVehicle(e){
+    var that = this;
+    console.log(e)
+    that.Base.setMyData({ vehicle_index: e.detail.value});
+    var vehicle_id = that.Base.getMyData().vehicle[e.detail.value].id
+    console.log(vehicle_id)
+    that.Base.setMyData({ vehicle_id: vehicle_id });
   }
-  gotoFerryQuote() {
-    wx.navigateTo({
-      url: '/pages/quoteferry/quoteferry',
+
+  dispatch(e){
+    var that = this;
+   // console.log(that.Base.getMyData().driver_id, that.Base.getMyData().vehicle_id)
+    wx.showModal({
+      content: '请确认订单信息',
+      success(res) {
+        if (res.confirm) {
+          var quoteferryapi = new QuoteferryApi();
+          quoteferryapi.dispatch({
+            id: e.currentTarget.id,
+            driver: that.Base.getMyData().driver_id,
+            vehicle_id: that.Base.getMyData().vehicle_id
+             }, (ret) => {
+            //console.log(ret)
+               wx.switchTab({
+              url: '../home/home',
+            })
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
   }
 
-  goReply() {
-    wx.navigateTo({
-      url: '/pages/reply/reply',
-    })
-  }
+  
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.gotoSearch = content.gotoSearch;
-body.changeCurrentTab = content.changeCurrentTab;
-body.changeTab = content.changeTab;
-body.switchBrand = content.switchBrand;
-body.switchPrice = content.switchPrice;
-body.switchSize = content.switchSize;
-body.gotoFerryQuote = content.gotoFerryQuote;
-body.goReply = content.goReply;
+body.bindPickerVehicle = content.bindPickerVehicle;
+body.bindPickerDriver = content.bindPickerDriver;
+body.dispatch = content.dispatch;
 
 Page(body)

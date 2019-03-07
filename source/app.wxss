@@ -213,6 +213,7 @@ view, navigator, input, text, textarea {
   word-break: keep-all; /* 不换行 */
   white-space: nowrap; /* 不换行 */
   overflow: hidden; /* 内容超出宽度时隐藏超出部分的内容 */
+
 }
 
 .h1 {
@@ -466,6 +467,9 @@ button[disabled][type=primary] {
 
 .margin-top-30 {
   margin-top: 30rpx;
+}
+.margin-top-40 {
+  margin-top: 40rpx;
 }
 
 .margin-top {
@@ -778,4 +782,11 @@ button[disabled][type=primary] {
 .icon {
   width: 40rpx;
   height: 40rpx;
+}
+
+.fixedbottom {
+  position: fixed;
+  bottom: 0rpx;
+  width: 750rpx;
+  z-index: 100;
 }

@@ -7,8 +7,8 @@
     <view class='flex-row padding-top-20'>
       <image src='{{uploadpath}}resource/qu.png' class='icon-30 margin-10 margin-left'></image>
       <view>
-        <view class='margin-10 f-36 flex-1' style='color: #000;'>信通大夏</view>
-        <view class='margin-10 flex-1' style='color: #858A96;'>信通大夏</view>
+        <view class='margin-10 f-36 flex-1' style='color: #000;'>{{info.start_address}}</view>
+        <view class='margin-10 flex-1' style='color: #858A96;'>{{info.start_address}}</view>
       </view>
 
     </view>
@@ -16,8 +16,8 @@
     <view class='flex-row'>
       <image src='{{uploadpath}}resource/song.png' class='icon-30 margin-10 margin-left'></image>
       <view>
-        <view class='margin-10 f-36 flex-1' style='color: #000;'>和平里东街13号</view>
-        <view class='margin-10 flex-1' style='color: #858A96;'>东街8号1号楼</view>
+        <view class='margin-10 f-36 flex-1' style='color: #000;'>{{info.end_address}}</view>
+        <view class='margin-10 flex-1' style='color: #858A96;'>{{info.end_address}}</view>
       </view>
 
     </view>
@@ -25,24 +25,24 @@
     <view class='flex-row padding-bottom-30'>
       <view class='margin-left'>
         <view class='margin-10 txt-black f-32 flex-row height-70'>
-          <view class='txt-black f-32' style='width: 180rpx;'>车牌号：</view> 粤A452687</view>
+          <view class='txt-black f-32' style='width: 180rpx;'>车牌号：</view> {{info.vehicle_id_name}}</view>
         <view class='margin-10 txt-black f-32 flex-row height-70'>
-          <view class='txt-black f-32' style='width: 180rpx;'>司机：</view> 张三</view>
+          <view class='txt-black f-32' style='width: 180rpx;'>司机：</view> {{info.driver_name}}</view>
         <view class='margin-10 txt-black f-32 flex-row height-70'>
-          <view class='txt-black f-32' style='width: 180rpx;'>接单时间：</view>2019-02-05 14:00</view>
+          <view class='txt-black f-32' style='width: 180rpx;'>接单时间：</view>{{info.receipt_time}}</view>
         <view class='margin-10 txt-black f-32 flex-row height-70'>
-          <view class='txt-black f-32' style='width: 180rpx;'>取货时间：</view>2019-02-05 14:00</view>
+          <view class='txt-black f-32' style='width: 180rpx;'>取货时间：</view>{{info.pickupgoods_time}}</view>
         <view class='margin-10 flex-row'>
           <view class='txt-black f-32' style='width: 180rpx;'>取货凭证：</view>
-          <image src='' class='voucher_img' bindtap='viewPhoto' id='{{}}'></image>
+          <image src='{{uploadpath}}photo/{{info.pickupgoods_img}}' class='voucher_img' bindtap='viewPhoto' id='{{uploadpath}}photo/{{info.pickupgoods_img}}'></image>
         </view>
 
 
         <view class='margin-10 txt-black f-32 flex-row height-50'>
-          <view class='txt-black f-32' style='width: 180rpx;'>送达时间：</view>2019-02-05 14:00</view>
+          <view class='txt-black f-32' style='width: 180rpx;'>送达时间：</view>{{info.order_end_time}}</view>
         <view class='margin-10 flex-row'>
           <view class='txt-black f-32' style='width: 180rpx;'>送达凭证：</view>
-          <image src='' class='voucher_img' bindtap='viewPhoto' id='{{}}'></image>
+          <image src='{{uploadpath}}photo/{{info.receipt_img}}' class='voucher_img' bindtap='viewPhoto' id='{{uploadpath}}photo/{{info.receipt_img}}'></image>
         </view>
       </view>
 

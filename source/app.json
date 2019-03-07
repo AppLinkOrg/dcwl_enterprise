@@ -14,7 +14,10 @@
     "pages/dispatch/dispatch",
     "pages/addressselect/addressselect",
     "pages/quoteferry/quoteferry",
-    "pages/inspectVehicle/inspectVehicle"
+    "pages/inspectVehicle/inspectVehicle",
+    "pages/route/route",
+    "pages/goodsselect/goodsselect",
+    "pages/success/success"
   ],
   "permission": {
     "scope.userLocation": {

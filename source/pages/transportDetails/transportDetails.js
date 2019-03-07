@@ -2,7 +2,8 @@
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
-// import { BookApi } from "../../apis/book.api.js";
+import { QuoteferryApi } from "../../apis/quoteferry.api.js";
+
 class Content extends AppBase {
   constructor() {
     super();
@@ -11,9 +12,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({
-      ctt: 1
-    })
+    this.Base.setMyData({ id: options.id, ctt: options.ctt });
 
   }
 
@@ -23,54 +22,17 @@ class Content extends AppBase {
     //   mask: true
     // })
     var that = this;
-    var instapi = new InstApi();
-
-
-    instapi.indexbanner({}, (indexbanner) => {
-      this.Base.setMyData({ indexbanner });
+    var quoteferryapi = new QuoteferryApi();
+    quoteferryapi.info({ id: this.Base.getMyData().id }, (ret) => {
+      console.log(ret)
+      that.Base.setMyData({ info: ret });
     });
 
-    // var bookapi = new BookApi();
-    // bookapi.booklist({ ishot: "Y" }, (booklist) => {
-    //   this.Base.setMyData({ booklist });
-    // });
-
-    // bookapi.booklist({ isday: "Y" }, (everydaylist) => {
-    //   this.Base.setMyData({ everydaylist });
-    // });
-
-    // bookapi.booklist({ isnew: "Y" }, (newlist) => {
-    //   this.Base.setMyData({ newlist });
-    //   wx.hideLoading()
-    // });
-
   }
 
-  bindcompleted(e) {
-    this.Base.setMyData({ ctt: 3 })
-    this.onMyShow();
-  }
-  bindwaitcompleted(e) {
-    this.Base.setMyData({ ctt: 2 })
-    this.onMyShow();
-  }
-  bindcontact(e) {
-    this.Base.setMyData({ ctt: 1 })
-    this.onMyShow();
-  }
 
-  todetails(e) {
-    var id = e.currentTarget.id;
-    wx.navigateTo({
-      url: '/pages/mytalkdetails/mytalkdetails?id=' + id + '&type=A',
-    })
-  }
 
-  tocontent(e) {
-    wx.navigateTo({
-      url: '/pages/news/news',
-    })
-  }
+
 }
 
 
@@ -78,9 +40,5 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.bindcompleted = content.bindcompleted;
-body.bindwaitcompleted = content.bindwaitcompleted;
-body.bindcontact = content.bindcontact;
-body.todetails = content.todetails;
-body.tocontent = content.tocontent;
+
 Page(body)

@@ -3,7 +3,7 @@
 <form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
   <view class='flex-row flex-column'>
     <view class='logo flex-row flex-center'>
-      <image class='logo_img' mode='aspectFit' src='{{uploadpath}}resource/{{res.logo}}'></image>
+      <image class='logo_img' mode='aspectFit' src='{{uploadpath}}inst/{{instinfo.logo}}'></image>
     </view>
     
     <view class='flex-row column '>
@@ -11,7 +11,7 @@
 
       <view class='flex-row flex-center margin-top'>
         <view class=''>
-          <image class='icon-30' src='{{uploadpath}}resource/{{res.dengluxingming}}'></image>
+          <image class='icon-30' src='{{uploadpath}}resource/user.png'></image>
         </view>
         <view class='flex-1 margin-left-20'>
           <input class='padding-10 txt-black h5' placeholder='请输入您的姓名' name='name' style='border-bottom:1rpx solid #e5e5e5;width:500rpx;'></input>
@@ -20,7 +20,7 @@
 
       <view class='flex-row flex-center margin-top-20'>
         <view class=''>
-          <image class='icon-30' src='{{uploadpath}}resource/{{res.dengludianhua}}'></image>
+          <image class='icon-30' src='{{uploadpath}}resource/phone2.png'></image>
         </view>
         <view class='flex-1 margin-left-20 flex-row flex-center' style='border-bottom:1rpx solid #e5e5e5;'>
           <input class='padding-10 txt-black h5' placeholder='点击绑定手机号码' name='mobile' style='width:380rpx;' value='{{mobile}}'></input>
@@ -30,7 +30,7 @@
 
     </view>
 
-    <button class='bg-red txt-white text-center margin-20 login_btn margin-top-100' form-type='submit' style=''>登 录</button>
+     <button class='bg-red txt-white text-center margin-20 login_btn margin-top-100' form-type='submit' style=''>登 录</button>
 
   </view>
 </form>

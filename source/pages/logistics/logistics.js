@@ -1,14 +1,9 @@
 // pages/content/content.js
-import {
-  AppBase
-} from "../../appbase";
-import {
-  ApiConfig
-} from "../../apis/apiconfig";
-import {
-  InstApi
-} from "../../apis/inst.api.js";
-// import { BookApi } from "../../apis/book.api.js";
+import { AppBase } from "../../appbase";
+import { ApiConfig } from "../../apis/apiconfig";
+import { InstApi } from "../../apis/inst.api.js";
+import { QuoteferryApi } from "../../apis/quoteferry.api.js";
+import { MemberApi } from '../../apis/member.api';
 class Content extends AppBase {
   constructor() {
     super();
@@ -29,29 +24,30 @@ class Content extends AppBase {
     //   mask: true
     // })
     var that = this;
-    var instapi = new InstApi();
+    var memberApi = new MemberApi();
+    memberApi.info({}, (info) => {
+      console.log(info)
+      that.Base.setMyData(info);
+      if (info.userrole_id == 2) {
+        var quoteferryapi = new QuoteferryApi();
+        quoteferryapi.listcompany({ status: 4 }, (ret) => {
+          this.Base.setMyData({ list_4: ret });
+        });
+        quoteferryapi.listcompany({ status: 6 }, (ret) => {
+          this.Base.setMyData({ list_6: ret });
+        });
+        quoteferryapi.listcompany({ status: 7 }, (ret) => {
+          this.Base.setMyData({ list_7: ret });
+        });
 
-
-    instapi.indexbanner({}, (indexbanner) => {
-      this.Base.setMyData({
-        indexbanner
-      });
+      }else{
+        wx.switchTab({
+          url: '../home/home',
+        })
+      }
     });
 
-    // var bookapi = new BookApi();
-    // bookapi.booklist({ ishot: "Y" }, (booklist) => {
-    //   this.Base.setMyData({ booklist });
-    // });
-
-    // bookapi.booklist({ isday: "Y" }, (everydaylist) => {
-    //   this.Base.setMyData({ everydaylist });
-    // });
-
-    // bookapi.booklist({ isnew: "Y" }, (newlist) => {
-    //   this.Base.setMyData({ newlist });
-    //   wx.hideLoading()
-    // });
-
+    
   }
 
   bindcompleted(e) {
@@ -73,28 +69,17 @@ class Content extends AppBase {
     this.onMyShow();
   }
 
-  todetails(e) {
-    var id = e.currentTarget.id;
-    wx.navigateTo({
-      url: '/pages/mytalkdetails/mytalkdetails?id=' + id + '&type=A',
-    })
-  }
-
-  tocontent(e) {
-    wx.navigateTo({
-      url: '/pages/news/news',
-    })
-  }
+ 
 
   logistics(e){
     wx.navigateTo({
-      url: '../receiptDetails/receiptDetails',
+      url: '../receiptDetails/receiptDetails?id=' + e.currentTarget.id,
     })
   }
 
   order(e) {
     wx.navigateTo({
-      url: '../logisticsDetails/logisticsDetails',
+      url: '../logisticsDetails/logisticsDetails?id=' + e.currentTarget.id,
     })
   }
 }
@@ -109,8 +94,7 @@ body.onMyShow = content.onMyShow;
 body.bindcompleted = content.bindcompleted;
 body.bindwaitcompleted = content.bindwaitcompleted;
 body.bindcontact = content.bindcontact;
-body.todetails = content.todetails;
-body.tocontent = content.tocontent;
+
 body.logistics = content.logistics;
 body.order = content.order;
 Page(body)

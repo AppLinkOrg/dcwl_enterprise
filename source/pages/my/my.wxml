@@ -17,3 +17,12 @@
     <button open-type="contact" class='clear-button  '>联系客服</button>
   </navigator>
 </view>
+
+<view class='white-block block' style='margin-top:40rpx;' wx:else>
+  <!-- <navigator url='../orderList/orderList' class='item item-split txt-black'>订单</navigator> -->
+  <view  class='item item-split txt-black' bindtap='jump'>前往客户端查看全部订单</view>
+
+  <navigator class='item '>
+    <button open-type="contact" class='clear-button  '>联系客服</button>
+  </navigator>
+</view>

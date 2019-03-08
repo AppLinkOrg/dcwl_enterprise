@@ -28,6 +28,21 @@ class Content extends AppBase {
     });
 
 
+    
+  }
+  
+  jump() {
+    wx.navigateToMiniProgram({
+      appId: 'wx9bd705284e9af21e',
+      path: 'pages/home/home',
+      extraData: {
+        foo: 'bar'
+      },
+      envVersion: 'develop',
+      success(res) {
+        // 打开成功
+      }
+    })
   }
 }
 var content = new Content();
@@ -35,4 +50,5 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.changePlayinback = content.changePlayinback;
+body.jump = content.jump;
 Page(body)

@@ -130,10 +130,10 @@
 
           <view class='flex-row flex-center padding-20' style='padding-top:0rpx;'>
             <view>
-              <image class='icon' src='{{uploadpath}}resource/user.png'></image>
+              <image class='icon' src='{{uploadpath}}resource/money.png'></image>
             </view>
             <view class='flex-1' style='margin-left:10rpx;margin-right:10rpx;'>
-              <input class='h6' style='width:100%' auto-height='{{true}}' placeholder='总价' maxlength='10' placeholder-style='color:#aaa' value='{{quoteamount}}' bindinput='quoteamountChange'></input>
+              <input class='h6' style='width:100%' type='digit' auto-height='{{true}}' placeholder='总价' maxlength='10' placeholder-style='color:#aaa' value='{{quoteamount}}' bindinput='quoteamountChange'></input>
             </view>
           </view>
         </view>

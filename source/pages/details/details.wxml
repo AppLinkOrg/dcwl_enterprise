@@ -15,7 +15,7 @@
         <view class='f-32 txt-black'>司机：{{datas.driver_name}}</view>
       </view>
       <view class='flex-row padding-left-20 height-50 flex-center'>
-        <view class='f-32 txt-black'>司机电话：{{datas.orderno}}</view>
+        <view class='f-32 txt-black'>司机电话：{{datas.driver_mobile}}</view>
       </view>
     </view>
 

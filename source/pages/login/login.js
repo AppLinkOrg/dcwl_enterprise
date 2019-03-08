@@ -33,7 +33,7 @@ class Content extends AppBase {
       this.Base.info("请点击绑定手机号");
       return;
     }
-
+    AppBase.UserInfo.mobile = data.mobile;
     var mobile = data.mobile;
     var name = data.name;
     var openid = AppBase.UserInfo.openid;
@@ -41,13 +41,27 @@ class Content extends AppBase {
     var api = new MemberApi();
     api.register({ mobile, name, openid, session_key }, (ret) => {
       console.log(ret)
-      if (ret.code == 0) {
-        wx.reLaunch({
-          url: '/pages/home/home',
-        })
-      } else {
-        this.Base.info("用户信息不正确");
-      }
+
+      var memberApi = new MemberApi();
+      memberApi.info({}, (info) => {
+        console.log(info)
+        if (ret.code == 0) {
+          if (info.userrole_id==2){
+            wx.reLaunch({
+              url: '/pages/home/home',
+            })
+          }else{
+            wx.reLaunch({
+              url: '/pages/quoteferry/quoteferry',
+            })
+          }
+         
+        } else {
+          this.Base.info("用户信息不正确");
+        }
+      })
+
+      
     })
   }
 }

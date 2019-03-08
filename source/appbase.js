@@ -191,14 +191,14 @@ export class AppBase {
                 console.log(AppBase.UserInfo);
                 ApiConfig.SetToken(data.openid);
                 console.log("goto update info");
-          
-                memberapi.update(AppBase.UserInfo, () => {
-                  console.log(AppBase.UserInfo);
-                  that.Base.setMyData({ UserInfo: AppBase.UserInfo });
-                  that.checkPermission();
-                });
 
-             
+                // memberapi.update(AppBase.UserInfo, () => {
+                //   console.log(AppBase.UserInfo);
+                //   that.Base.setMyData({ UserInfo: AppBase.UserInfo });
+                //   that.checkPermission();
+                // });
+
+
               });
             },
             fail: userloginres => {
@@ -224,7 +224,7 @@ export class AppBase {
                 console.log("goto update info");
 
               });
-              
+
             }
           });
 
@@ -237,7 +237,8 @@ export class AppBase {
       } else {
         that.Base.setMyData({ UserInfo: AppBase.UserInfo });
       }
-    
+
+
       that.Base.setMyData({ UserInfo: AppBase.UserInfo });
 
       that.checkPermission();

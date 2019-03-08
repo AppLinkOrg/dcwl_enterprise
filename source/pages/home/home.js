@@ -39,19 +39,33 @@ class Content extends AppBase {
       
       if (info.userrole_id == 2) {
         var quoteferryapi = new QuoteferryApi();
-        quoteferryapi.listcompany({ status: 2 }, (ret) => {
+        quoteferryapi.listcompany({ status: 2, mobile: info.mobile}, (ret) => {
           this.Base.setMyData({ list_2: ret });
         });
-        quoteferryapi.listcompany({ status: 1 }, (ret) => {
+        quoteferryapi.listcompany({ status: 1, mobile: info.mobile }, (ret) => {
           this.Base.setMyData({ list_1: ret });
         });
-        quoteferryapi.listcompany({ status: 3 }, (ret) => {
+        quoteferryapi.listcompany({ status: 3, mobile: info.mobile }, (ret) => {
           this.Base.setMyData({ list_3: ret });
         });
+      }else{
+        var memberApi = new MemberApi();
+        memberApi.info({}, (ret) => {
+        
+          var quoteferryapi = new QuoteferryApi();
+          quoteferryapi.list({ status: 2, mobile: ret.mobile }, (ret) => {
+            this.Base.setMyData({ list_2: ret });
+          });
+          quoteferryapi.list({ status: 1, mobile: ret.mobile }, (ret) => {
+            this.Base.setMyData({ list_1: ret });
+          });
+        })
+        
       }
     });
     
   }
+
 
   changeCurrentTab(e) {
     console.log(e);
@@ -93,6 +107,81 @@ class Content extends AppBase {
       path: 'pages/quoteferry/quoteferry'
     }
   }
+
+  jump(){
+    wx.navigateToMiniProgram({
+      appId: 'wx9bd705284e9af21e',
+      path: 'pages/home/home',
+      extraData: {
+        foo: 'bar'
+      },
+      envVersion: 'develop',
+      success(res) {
+        // 打开成功
+      }
+    })
+  }
+
+  confirmOrder(e) {
+    // console.log(e)
+    var that = this;
+    wx.showModal({
+      content: '请确认订单信息',
+      success(res) {
+        if (res.confirm) {
+          var quoteferryapi = new QuoteferryApi();
+          quoteferryapi.confirm({
+            id: e.target.id
+          }, (ret) => {
+            console.log(ret)
+            that.onMyShow();
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  }
+
+  cancelOrder(e) {
+    //console.log(e)
+    wx.showModal({
+      content: '是否取消订单',
+      success(res) {
+        if (res.confirm) {
+          var quoteferryapi = new QuoteferryApi();
+          quoteferryapi.abandon({
+            id: e.target.id
+          }, (ret) => {
+            //console.log(ret)
+            this.onMyShow();
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+
+  }
+
+  cancelOrder1(e) {
+    //console.log(e)
+    wx.showModal({
+      content: '是否取消询价',
+      success(res) {
+        if (res.confirm) {
+          var quoteferryapi = new QuoteferryApi();
+          quoteferryapi.abandon({ id: e.target.id }, (ret) => {
+            //console.log(ret)
+            this.onMyShow();
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -107,5 +196,10 @@ body.switchSize = content.switchSize;
 body.gotoFerryQuote = content.gotoFerryQuote;
 body.goReply = content.goReply;
 body.goDispatch = content.goDispatch;
+body.jump = content.jump;
+
+body.cancelOrder = content.cancelOrder;
+body.cancelOrder1 = content.cancelOrder1;
+body.confirmOrder = content.confirmOrder;
 
 Page(body)

@@ -55,5 +55,10 @@
         "selectedIconPath": "images/icons/personal-blue.png"
       }
     ]
-  }
+  },
+
+  "debug": true,
+  "navigateToMiniProgramAppIdList": [
+    "wx9bd705284e9af21e"
+  ]
 }

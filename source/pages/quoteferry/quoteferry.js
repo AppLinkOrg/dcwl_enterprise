@@ -181,4 +181,5 @@ body.confirmQuote = content.confirmQuote;
 body.remarkChange = content.remarkChange;
 body.realnameChange = content.realnameChange;
 body.changeDate = content.changeDate;
+body.quoteamountChange = content.quoteamountChange;
 Page(body)

@@ -78,7 +78,7 @@ class Content extends AppBase {
           var quoteferryapi = new QuoteferryApi();
           quoteferryapi.dispatch({
             id: e.currentTarget.id,
-            driver: that.Base.getMyData().driver_id,
+            driver_id: that.Base.getMyData().driver_id,
             vehicle_id: that.Base.getMyData().vehicle_id
              }, (ret) => {
             //console.log(ret)

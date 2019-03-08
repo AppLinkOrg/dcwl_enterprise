@@ -13,14 +13,14 @@
         <image src='{{uploadpath}}resource/dot.png' class='icon-30 margin-10 margin-left'></image>
         <view>
           <view class='margin-10 f-36 flex-1' style='color: #000;'>{{item.start_address}}</view>
-          <view class='margin-10 flex-1' style='color: #858A96;'>{{item.start_address}}</view>
+          <view class='margin-10 flex-1' style='color: #858A96;'>{{item.s_address_details}}</view>
         </view>
       </view>
       <view class='flex-row'>
         <image src='{{uploadpath}}resource/dot-yellow.png' class='icon-30 margin-10 margin-left'></image>
         <view>
           <view class='margin-10 f-36 flex-1' style='color: #000;'>{{item.end_address}}</view>
-          <view class='margin-10 flex-1' style='color: #858A96;'>{{item.end_address}}</view>
+          <view class='margin-10 flex-1' style='color: #858A96;'>{{item.e_address_details}}</view>
         </view>
       </view>
     </navigator>

@@ -105,9 +105,15 @@
             <view>
               <image class='icon' src='{{uploadpath}}resource/phone2.png'></image>
             </view>
-            <view class='flex-1' style='margin-left:10rpx;margin-right:10rpx;'>
+            <view class='flex-1' style='margin-left:10rpx;margin-right:10rpx;' wx:if="{{memberinfo.userrole_id==2}}">
               <input class='h6' style='width:100%' auto-height='{{true}}' placeholder='手机号码' maxlength='11' placeholder-style='color:#aaa' value='{{mobile}}'></input>
             </view>
+
+            <view class='flex-1' style='margin-left:10rpx;margin-right:10rpx;' wx:else>
+              <view class='h6' style='width:100%;' >{{mobile}}</view>
+              <!-- <input class='h6' style='width:100%' auto-height='{{true}}' placeholder='手机号码' maxlength='11' placeholder-style='color:#aaa' value='{{mobile}}'></input> -->
+            </view>
+
             <view>
               <button class='h6' size='mini' open-type='getPhoneNumber' bindgetphonenumber='getPhoneNo'>获取</button>
             </view>

@@ -46,15 +46,15 @@ class Content extends AppBase {
       memberApi.info({}, (info) => {
         console.log(info)
         if (ret.code == 0) {
-          if (info.userrole_id==2){
+          // if (info.userrole_id==2){
             wx.reLaunch({
               url: '/pages/home/home',
             })
-          }else{
-            wx.reLaunch({
-              url: '/pages/quoteferry/quoteferry',
-            })
-          }
+          // }else{
+          //   wx.reLaunch({
+          //     url: '/pages/quoteferry/quoteferry',
+          //   })
+          // }
          
         } else {
           this.Base.info("用户信息不正确");

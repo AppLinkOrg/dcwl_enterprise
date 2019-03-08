@@ -41,8 +41,19 @@ class Content extends AppBase {
         });
 
       }else{
-        wx.switchTab({
-          url: '../home/home',
+        var memberApi = new MemberApi();
+        memberApi.info({}, (ret) => {
+
+          var quoteferryapi = new QuoteferryApi();
+          quoteferryapi.list({ status: '4,5', mobile: ret.mobile }, (ret) => {
+            this.Base.setMyData({ list_4: ret });
+          });
+          quoteferryapi.list({ status: 6, mobile: ret.mobile }, (ret) => {
+            this.Base.setMyData({ list_6: ret });
+          });
+          quoteferryapi.list({ status: 7, mobile: ret.mobile }, (ret) => {
+            this.Base.setMyData({ list_7: ret });
+          });
         })
       }
     });

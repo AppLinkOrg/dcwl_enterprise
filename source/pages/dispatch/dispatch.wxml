@@ -13,11 +13,11 @@
         </view>
         <view class=' txt-black f-32 flex-row padding-top-10'>
           <view class='txt-black f-32' style='width: 160rpx;'>取货地点：</view>
-          <view class='txt-black f-32 dian01 ' style='width: 502rpx;'>{{data.start_address}}</view>
+          <view class='txt-black f-32 dian01 ' style='width: 502rpx;'>{{data.s_address_details}}</view>
         </view>
         <view class=' txt-black f-32 flex-row padding-top-10'>
           <view class='txt-black f-32' style='width: 160rpx;'>到货地点：</view>
-          <view class='txt-black f-32 dian01 ' style='width: 502rpx;'>{{data.end_address}}</view>
+          <view class='txt-black f-32 dian01 ' style='width: 502rpx;'>{{data.e_address_details}}</view>
         </view>
         <view class=' txt-black f-32 flex-row padding-top-10'>
           <view class='txt-black f-32' style='width: 160rpx;'>路程：</view>{{data.distance}}

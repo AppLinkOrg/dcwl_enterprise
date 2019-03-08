@@ -10,14 +10,14 @@
     <view class='flex-row padding-top-20'>
       <image src='{{uploadpath}}resource/dot.png' class='icon-20 margin-10 margin-left'></image>
       <view>
-        <view class='margin-10 f-32 txt-black'>装货地址：{{info.start_address}}</view>
+        <view class='margin-10 f-32 txt-black'>装货地址：{{info.s_address_details}}</view>
       </view>
     </view>
 
     <view class='flex-row'>
       <image src='{{uploadpath}}resource/dot-yellow.png' class='icon-20 margin-10 margin-left'></image>
       <view>
-        <view class='margin-10 f-32 txt-black'>卸货地址：{{info.end_address}}</view>
+        <view class='margin-10 f-32 txt-black'>卸货地址：{{info.e_address_details}}</view>
       </view>
     </view>
 
@@ -52,7 +52,7 @@
 
     <view class='flex-center flex-row margin-bottom-40'>
       <view class="flex-1"></view>
-      <button class='bg-blue txt-white text-center margin-20 margin-top-60 f-36' form-type='submit' style='width: 420rpx;'>一键复制订单信息</button>
+      <button class='bg-blue txt-white text-center margin-20 margin-top-60 f-36' bindtap='copy' style='width: 420rpx;'>一键复制订单信息</button>
       <view class="flex-1"></view>
     </view>
 

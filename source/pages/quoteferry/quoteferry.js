@@ -22,6 +22,9 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
+      
+    
+
 
     if (this.Base.options.id == undefined) {
       var mobile = this.Base.getMyData().mobile;

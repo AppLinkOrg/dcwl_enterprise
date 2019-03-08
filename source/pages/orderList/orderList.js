@@ -35,8 +35,14 @@ class Content extends AppBase {
         });
         
       } else {
-        wx.switchTab({
-          url: '../home/home',
+        var memberApi = new MemberApi();
+        memberApi.info({}, (ret) => {
+
+          var quoteferryapi = new QuoteferryApi();
+          quoteferryapi.list({  mobile: ret.mobile }, (ret) => {
+            this.Base.setMyData({ list: ret });
+          });
+          
         })
       }
     });

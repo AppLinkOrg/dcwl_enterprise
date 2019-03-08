@@ -28,7 +28,7 @@
         <view>
           <view class='flex-row '>
             <image src='{{uploadpath}}resource/loading.png' class='icon-20 margin-10 margin-left'></image>
-            <view class='margin-10 f-32 flex-1' style='color: #000;'>{{datas.start_address}}</view>
+            <view class='margin-10 f-32 flex-1' style='color: #000;'>{{datas.s_address_details}}</view>
           </view>
           <view class='flex-row '>
             <image src='{{uploadpath}}resource/cargo.png' class='icon-20 margin-10 margin-left'></image>
@@ -36,7 +36,7 @@
           </view>
           <view class='flex-row '>
             <image src='{{uploadpath}}resource/unload.png' class='icon-20 margin-10 margin-left'></image>
-            <view class='margin-10 f-32 flex-1' style='color: #000;'>{{datas.end_address}}</view>
+            <view class='margin-10 f-32 flex-1' style='color: #000;'>{{datas.e_address_details}}</view>
           </view>
         </view>
       </view>

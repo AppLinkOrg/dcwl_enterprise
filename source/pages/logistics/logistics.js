@@ -30,7 +30,7 @@ class Content extends AppBase {
       that.Base.setMyData(info);
       if (info.userrole_id == 2) {
         var quoteferryapi = new QuoteferryApi();
-        quoteferryapi.listcompany({ status: 4 }, (ret) => {
+        quoteferryapi.listcompany({ status: '4,5' }, (ret) => {
           this.Base.setMyData({ list_4: ret });
         });
         quoteferryapi.listcompany({ status: 6 }, (ret) => {
@@ -42,18 +42,22 @@ class Content extends AppBase {
 
       }else{
         var memberApi = new MemberApi();
-        memberApi.info({}, (ret) => {
 
-          var quoteferryapi = new QuoteferryApi();
-          quoteferryapi.list({ status: '4,5', mobile: ret.mobile }, (ret) => {
-            this.Base.setMyData({ list_4: ret });
-          });
-          quoteferryapi.list({ status: 6, mobile: ret.mobile }, (ret) => {
-            this.Base.setMyData({ list_6: ret });
-          });
-          quoteferryapi.list({ status: 7, mobile: ret.mobile }, (ret) => {
-            this.Base.setMyData({ list_7: ret });
-          });
+        var instapi = new InstApi();
+        instapi.info({}, (inst) => {
+          memberApi.info({}, (ret) => {
+
+            var quoteferryapi = new QuoteferryApi();
+            quoteferryapi.list({ status: '3,4,5', mobile: ret.mobile, inst_id: inst.id }, (ret) => {
+              this.Base.setMyData({ list_4: ret });
+            });
+            quoteferryapi.list({ status: 6, mobile: ret.mobile, inst_id: inst.id }, (ret) => {
+              this.Base.setMyData({ list_6: ret });
+            });
+            quoteferryapi.list({ status: 7, mobile: ret.mobile, inst_id: inst.id }, (ret) => {
+              this.Base.setMyData({ list_7: ret });
+            });
+          })
         })
       }
     });

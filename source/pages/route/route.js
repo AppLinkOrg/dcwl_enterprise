@@ -25,9 +25,10 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var mylocation=this.Base.getMyData().mylocation;
-    if(mylocation==undefined){
+    if (mylocation == undefined) {
+      that.Base.setMyData({  "a": "bc" });
       that.Base.getAddress((addressinfo) => {
-        that.Base.setMyData({ mylocation: addressinfo });
+        that.Base.setMyData({ mylocation: addressinfo, "a": JSON.stringify(addressinfo) });
       });
     }
 

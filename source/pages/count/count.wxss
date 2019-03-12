@@ -1,0 +1,16 @@
+/* pages/count/count.wxss */
+page {
+  background: #f6f6f6;
+}
+.content {
+  width: 682rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding-top: 20rpx;
+  padding-bottom: 30rpx;
+}
+.month{
+  padding-right: 40rpx;
+  border-right: 1rpx solid #BBBBBB;
+  height: 140rpx;
+}

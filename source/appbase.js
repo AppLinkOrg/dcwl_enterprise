@@ -390,6 +390,7 @@ export class AppBase {
             },
             complete: function (res) {
               console.log("complete");
+              
               console.log(res);
             }
           });

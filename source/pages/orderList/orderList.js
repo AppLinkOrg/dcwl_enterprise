@@ -13,7 +13,7 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      ctt: 1
+      month: options.month
     })
 
   }
@@ -25,24 +25,28 @@ class Content extends AppBase {
     // })
     var that = this;
     var memberApi = new MemberApi();
-    memberApi.info({}, (info) => {
+    memberApi.info({ }, (info) => {
       console.log(info)
       that.Base.setMyData(info);
       if (info.userrole_id == 2) {
         var quoteferryapi = new QuoteferryApi();
-        quoteferryapi.listcompany({ }, (ret) => {
+        quoteferryapi.listcompany({ submit_time: that.Base.getMyData().month }, (ret) => {
           this.Base.setMyData({ list: ret });
         });
         
       } else {
         var memberApi = new MemberApi();
-        memberApi.info({}, (ret) => {
 
-          var quoteferryapi = new QuoteferryApi();
-          quoteferryapi.list({  mobile: ret.mobile }, (ret) => {
-            this.Base.setMyData({ list: ret });
-          });
-          
+        var instapi = new InstApi();
+        instapi.info({}, (inst) => {
+          memberApi.info({}, (ret) => {
+
+            var quoteferryapi = new QuoteferryApi();
+            quoteferryapi.list({ mobile: ret.mobile, inst_id: inst.id }, (ret) => {
+              this.Base.setMyData({ list: ret });
+            });
+            
+          })
         })
       }
     });

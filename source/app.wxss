@@ -288,7 +288,7 @@ button[type=bak_ble] {
 }
 
 button.button-hover[type=primary] {
-  background-color: rgba(0, 162, 231, 0.856);
+  background-color: rgb(243, 50, 56);
 }
 
 button[disabled][type=primary] {

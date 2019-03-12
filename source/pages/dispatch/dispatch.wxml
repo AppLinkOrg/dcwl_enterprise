@@ -38,16 +38,16 @@
     <form>
       <view class='margin-left padding-top-40 '>
         <view class='margin-10  flex-row height-70 margin-bottom-40 input flex-center' style='width: 94%;'>
-          <picker bindchange="bindPickerDriver" value="{{index}}" range-key='name' range="{{driver}}" class='txt-black f-32 flex-row flex-center margin-left-20'>
-           <view wx:if="{{!driver[driver_index].name}}">请选择司机</view>{{driver[driver_index].name}}
+          <picker bindchange="bindPickerDriver" value="{{index}}" range-key='name' range="{{driver}}" class='txt-black f-32 flex-row flex-center margin-left-20' style='width: 100%'>
+           <view wx:if="{{!driver[driver_index].name}}" style='width: 600rpx;'>请选择司机</view>{{driver[driver_index].name}}
           </picker>
           <view class="flex-1"></view>
           <image src='{{uploadpath}}resource/direction.png' class='icon-20 margin-10'></image>
         </view>
 
         <view class='margin-10  flex-row height-70 margin-bottom-40 input flex-center' style='width: 94%;'>
-          <picker bindchange="bindPickerVehicle" value="{{vehicle_index}}" range-key='plate_number' range="{{vehicle}}" class='txt-black f-32 flex-row flex-center margin-left-20'>
-            <view wx:if="{{!vehicle[vehicle_index].plate_number}}">请选择车辆</view>{{vehicle[vehicle_index].plate_number}}
+          <picker bindchange="bindPickerVehicle" value="{{vehicle_index}}" range-key='plate_number' range="{{vehicle}}" class='txt-black f-32 flex-row flex-center margin-left-20' style='width: 100%'>
+            <view wx:if="{{!vehicle[vehicle_index].plate_number}}" style='width: 600rpx;'>请选择车辆</view>{{vehicle[vehicle_index].plate_number}}
           </picker>
           <view class="flex-1"></view>
           <image src='{{uploadpath}}resource/direction.png' class='icon-20 margin-10'></image>

@@ -1,0 +1,26 @@
+<!--pages/count/count.wxml-->
+<view class="flex-row margin-top-20">
+  <view class="flex-1"></view>
+  <view>
+    <view class='content margin-20 ' wx:for="{{list}}">
+      <view class='flex-row '>
+        <view class="flex-1"></view>
+        <view class='flex-row'>
+          <view class='h2 txt-black month flex-center flex-row'>{{item.month}}</view>
+          <view class='margin-left-30 ' style='width: 400rpx;'>
+            <view class='txt-black height-70 flex-center flex-row'>总订单数：{{item.count}}单</view>
+            <view class='txt-black height-70 flex-center flex-row'>总金额： {{item.totalmoney}}元</view>
+          </view>
+        </view>
+        <view class="flex-1"></view>
+      </view>
+
+      <view class='flex-center flex-row '>
+        <view class="flex-1"></view>
+        <button class='bg-red txt-white text-center margin-10 f-32' bindtap='logistics' id='{{item.month}}' style='width: 400rpx;'>了解详情</button>
+        <view class="flex-1"></view>
+      </view>
+    </view>
+  </view>
+  <view class="flex-1"></view>
+</view>

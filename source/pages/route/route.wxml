@@ -1,4 +1,6 @@
 <!--pages/route/route.wxml-->
+
+<view wx:if="{{mylocation!=undefined}}">
 <map id="map" markers='{{markers}}' scale="15" latitude='{{mylocation.ad_info.location.lat}}' longitude='{{mylocation.ad_info.location.lng}}' show-location style="width: 100vw; height: 100vh;" polyline='{{polyline}}'>
 
   <cover-view class='fixedbottom '>
@@ -42,3 +44,5 @@
   </cover-view>
 
 </map>
+
+</view>

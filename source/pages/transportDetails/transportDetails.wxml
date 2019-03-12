@@ -36,8 +36,6 @@
           <view class='txt-black f-32' style='width: 180rpx;'>取货凭证：</view>
           <image src='{{uploadpath}}photo/{{info.pickupgoods_img}}' class='voucher_img' bindtap='viewPhoto' id='{{uploadpath}}photo/{{info.pickupgoods_img}}'></image>
         </view>
-
-
         <view class='margin-10 txt-black f-32 flex-row height-50'>
           <view class='txt-black f-32' style='width: 180rpx;'>送达时间：</view>{{info.order_end_time}}</view>
         <view class='margin-10 flex-row'>

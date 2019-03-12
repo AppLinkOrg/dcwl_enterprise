@@ -17,7 +17,8 @@
     "pages/inspectVehicle/inspectVehicle",
     "pages/route/route",
     "pages/goodsselect/goodsselect",
-    "pages/success/success"
+    "pages/success/success",
+    "pages/count/count"
   ],
   "permission": {
     "scope.userLocation": {

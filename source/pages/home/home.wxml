@@ -1,4 +1,5 @@
 <!--pages/home/home.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
 <view class='text-center headerback'>
   <image src='{{uploadpath}}inst/{{logobackimg}}' mode='aspectFill'></image>
 </view>
@@ -378,16 +379,18 @@
 
 
     <view class='padding-40 white-block margin-top'>
-      <view class='h4 txt-bold'>特色服务</view>
+      <view class='h4 txt-bold'>公司介绍</view>
       <view class='flex-row flex-wrap margin-top-10'>
-        <navigator class='baozhangitem flex-row flex-center' wx:for="{{servicelist}}" wx:key="k">
+        <!-- <navigator class='baozhangitem flex-row flex-center'>
           <view>
             <icon size='12' type='success'></icon>
+          </view> -->
+          <view  style='margin:10rpx;  width: 650rpx;'>
+  
+            <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+            
           </view>
-          <view class='h6' style='margin-left:10rpx;'>
-            {{item.name}}
-          </view>
-        </navigator>
+        <!-- </navigator> -->
       </view>
     </view>
   </view>

@@ -30,20 +30,7 @@ class Content extends AppBase {
 
   }
 
-  copy() {
-    var that = this;
-    var data = '司机:' + that.Base.getMyData().info.driver_id_name + '\n' + '联系方式:' + that.Base.getMyData().info.driver_mobile + '\n' + '身份证:' + that.Base.getMyData().info.driver_idcard + '\n' + '车辆:' + that.Base.getMyData().info.vehicle_plate_number
-    wx.setClipboardData({
-      data: data,
-      success(res) {
-        wx.getClipboardData({
-          success(res) {
-            console.log(res.data) // data
-          }
-        })
-      }
-    })
-  }
+  
 
 
 

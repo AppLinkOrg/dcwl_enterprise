@@ -29,7 +29,7 @@ class Content extends AppBase {
       var memberApi = new MemberApi();
       memberApi.info({}, (info) => {
         console.log(info)
-        that.Base.setMyData({ userrole_id: info.userrole_id });
+        that.Base.setMyData({ userrole_id: info.company });
 
         var instapi = new InstApi();
         instapi.info({}, (servicelist) => {
@@ -37,7 +37,7 @@ class Content extends AppBase {
           WxParse.wxParse('content', 'html', servicelist.content, that, 10);
         });
 
-        if (info.userrole_id == 2) {
+        if (info.company == 2) {
           var quoteferryapi = new QuoteferryApi();
           quoteferryapi.listcompany({ status: 2 }, (ret) => {
             this.Base.setMyData({ list_2: ret });

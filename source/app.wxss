@@ -248,6 +248,14 @@ view, navigator, input, text, textarea {
   font-size: 20rpx !important;
 }
 
+.f-28 {
+  font-size: 28rpx !important;
+}
+
+.f-30 {
+  font-size: 30rpx !important;
+}
+
 .f-32 {
   font-size: 32rpx !important;
 }

@@ -15,6 +15,8 @@
           <view class='txt-black f-32' style='width: 180rpx;'>货物：</view>{{data.goodsstr}}</view>
         <view class='margin-10 txt-black f-32 flex-row height-70'>
           <view class='txt-black f-32' style='width: 180rpx;'>载重：</view>{{data.weight}}</view>
+        <view class='margin-10 txt-black f-32 flex-row height-70'>
+          <view class='txt-black f-32' style='width: 180rpx;'>备注：</view>{{data.remark}}</view>
       </view>
 
     </view>
@@ -24,21 +26,26 @@
       <view class='f-36 txt-black txt-bold'>报价回复</view>
       <view class="flex-1"></view>
     </view>
-    <form bindsubmit="reply" bindreset="formReset" report-submit="{{true}}" >
+    <form bindsubmit="reply" bindreset="formReset" report-submit="{{true}}">
       <view class='margin-left padding-top-40'>
         <view class='margin-10 txt-black f-32 flex-row height-70'>
-          <view class='txt-black f-32' style='width: 180rpx;'>报价：</view>
-          <input class='input' name='quoteamount' type='digit'></input>
+          <view class='txt-black f-32' style='width: 180rpx;'>单价：</view>
+          <input class='input ' bindinput='price' name='price' type='digit'></input> 元/吨
+        </view>
+
+        <view class=' margin-10 txt-black f-32 flex-row height-70'>
+          <view class='txt-black f-32' style='width: 180rpx;'>总金额：</view>
+          <view class='input height-50' style='width: 360rpx;'>{{quoteamount}}</view> 元
         </view>
 
         <view class='margin-10 txt-black f-32 flex-row height-70'>
           <view class='txt-black f-32' style='width: 180rpx;'>报价人：</view>
-          <input class='input' name='username'></input>
+          <input class='input' name='username' value='{{memberinfo.name}}'></input>
         </view>
 
         <view class='margin-10 txt-black f-32 flex-row height-70'>
           <view class='txt-black f-32' style='width: 180rpx;'>联系方式：</view>
-          <input class='input' name='mobile' type='number'></input>
+          <input class='input' name='mobile' type='number' value='{{memberinfo.mobile}}'></input>
         </view>
 
         <view class='margin-10 txt-black f-32 flex-row height-150'>
@@ -46,6 +53,9 @@
           <textarea class='textarea input' name='remark'></textarea>
         </view>
       </view>
+
+
+
 
       <view class='flex-center flex-row '>
         <view class="flex-1"></view>

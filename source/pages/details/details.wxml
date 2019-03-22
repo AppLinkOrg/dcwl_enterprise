@@ -56,10 +56,8 @@
 
           <view class='flex-row '>
             <image src='{{uploadpath}}resource/songhuo.png' class='icon-20 margin-10 margin-left'></image>
-            <view class='margin-10 f-32 flex-1' style='color: #000;'>到货时间： {{datas.order_end_time}}</view>
+            <view class='margin-10 f-32 flex-1' style='color: #000;'>到货时间：{{datas.order_end_time}}</view>
           </view>
-
-
         </view>
       </view>
 
@@ -86,7 +84,7 @@
       <view class='flex-row padding-left-40  flex-center'>
         <view style='width: 100%;'>
           <view class='flex-row height-70'>
-            <view class='txt-black'>{{datas.vehicle_id_name}}</view>
+            <view class='txt-black'>{{datas.vehicle_name}}</view>
             <view class="flex-1"></view>
             <view class='txt-black'></view>
           </view>

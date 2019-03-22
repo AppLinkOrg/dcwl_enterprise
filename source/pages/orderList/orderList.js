@@ -28,11 +28,18 @@ class Content extends AppBase {
     memberApi.info({ }, (info) => {
       console.log(info)
       that.Base.setMyData(info);
-      if (info.userrole_id == 2) {
+      if (info.company == 2) {
         var quoteferryapi = new QuoteferryApi();
-        quoteferryapi.listcompany({ submit_time: that.Base.getMyData().month }, (ret) => {
-          this.Base.setMyData({ list: ret });
-        });
+        if (that.Base.getMyData().month){
+          quoteferryapi.listcompany({ submit_time: that.Base.getMyData().month }, (ret) => {
+            this.Base.setMyData({ list: ret });
+          });
+        }else{
+          quoteferryapi.listcompany({ }, (ret) => {
+            this.Base.setMyData({ list: ret });
+          });
+        }
+        
         
       } else {
         var memberApi = new MemberApi();

@@ -29,35 +29,49 @@
       <view class='flex-row padding-top-20'>
         <image src='{{uploadpath}}resource/dot.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-          <view class='margin-10 f-32 txt-black'>装货地址：{{item.s_address_details}}</view>
+          <view class='margin-10 f-32 txt-black' style='width:580rpx;'>装货地址：{{item.s_address_details}}</view>
         </view>
       </view>
 
       <view class='flex-row'>
         <image src='{{uploadpath}}resource/dot-yellow.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-          <view class='margin-10 f-32 txt-black'>卸货地址：{{item.e_address_details}}</view>
+          <view class='margin-10 f-32 txt-black' style='width:580rpx;'>卸货地址：{{item.e_address_details}}</view>
         </view>
       </view>
 
       <view class='flex-row'>
         <image src='{{uploadpath}}resource/cargo.png' class='icon-30 margin-10 margin-left'></image>
-        <view class='flex-row'>
-          <view class='margin-10 f-32 txt-black' style='width: 230rpx;'>货物：{{item.goodsstr}}</view>
-          <view class='margin-10 f-32 txt-black'>重量：{{item.weight}}</view>
-        </view>
+        <!-- <view class='flex-row'> -->
+        <view class='margin-10 f-32 txt-black'>货物：{{item.goodsstr}}</view>
+        <!-- <view class='margin-10 f-32 txt-black'>重量：{{item.weight}}</view>
+        </view> -->
+      </view>
+
+      <view class='flex-row'>
+        <image src='{{uploadpath}}resource/cargo.png' class='icon-30 margin-10 margin-left'></image>
+
+        <view class='margin-10 f-32 txt-black'>重量：{{item.weight}}</view>
+
       </view>
 
       <view class='flex-row'>
         <image src='{{uploadpath}}resource/driver.png' class='icon-30 margin-10 margin-left'></image>
 
-        <view class='margin-10 f-32 txt-black'>司机：{{item.driver_name}}</view>
+        <view class='margin-10 f-32 txt-black' wx:if="{{item.driver_name}}">司机：{{item.driver_name}}</view>
+        <view class='margin-10 f-32 txt-red' wx:else>司机：正在安排司机接单</view>
+      </view>
+
+      <view class='flex-row'>
+        <image src='{{uploadpath}}resource/phone.png' class='icon-30 margin-10 margin-left'></image>
+
+        <view class='margin-10 f-32 txt-black'>联系电话：{{item.driver_mobile}}</view>
       </view>
 
       <view class='flex-row'>
         <image src='{{uploadpath}}resource/id-card.png' class='icon-30 margin-10 margin-left'></image>
 
-        <view class='margin-10 f-32 txt-black'>身份证号码：{{item.vehicle_plate_number}}</view>
+        <view class='margin-10 f-32 txt-black'>身份证号码：{{item.driver_idcard}}</view>
 
       </view>
 
@@ -66,6 +80,12 @@
 
         <view class='margin-10 f-32 txt-black'>车牌：{{item.vehicle_plate_number}}</view>
 
+      </view>
+
+      <view class='flex-center flex-row '>
+        <view class="flex-1"></view>
+        <button class='bg-blue txt-white text-center margin-20 margin-top-60 f-36' bindtap='copy' style='width: 420rpx;' data-name='{{item.driver_name}}' data-idcard='{{item.driver_idcard}}' data-plate_number='{{item.vehicle_plate_number}}' data-mobile='{{item.driver_mobile}}'>一键复制订单信息</button>
+        <view class="flex-1"></view>
       </view>
     </view>
   </view>
@@ -76,27 +96,26 @@
 <view class="flex-row margin-top-100" wx:if="{{ctt==2}}">
   <view class="flex-1"></view>
   <view class=''>
-    <view class='content margin-top padding-20 margin-bottom-20 'wx:key='item' wx:for="{{list_6}}">
+    <view class='content margin-top padding-20 margin-bottom-20 ' wx:key='item' wx:for="{{list_6}}">
       <view class='flex-row padding-left-40 height-50 flex-center'>
         <view class='f-32 txt-black'>运单号：{{item.orderno}}</view>
       </view>
       <view class='flex-row padding-top-20'>
         <image src='{{uploadpath}}resource/dot.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-          <view class='margin-10 f-36 flex-1' style='color: #000;'>{{item.start_address}}</view>
-          <view class='margin-10 flex-1' style='color: #858A96;'>{{item.s_address_details}}</view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;width:580rpx;'>{{item.start_address}}</view>
+          <view class='margin-10 flex-1' style='color: #858A96;width:580rpx;'>{{item.s_address_details}}</view>
         </view>
       </view>
       <view class='flex-row'>
         <image src='{{uploadpath}}resource/dot-yellow.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-          <view class='margin-10 f-36 flex-1' style='color: #000;'>{{item.end_address}}</view>
-          <view class='margin-10 flex-1' style='color: #858A96;'>{{item.e_address_details}}</view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;width:580rpx;'>{{item.end_address}}</view>
+          <view class='margin-10 flex-1' style='color: #858A96;width:580rpx;'>{{item.e_address_details}}</view>
         </view>
       </view>
 
       <view class='flex-row'>
-
         <view class='margin-left margin-10 txt-black f-32 flex-row flex-center height-70'>
           <view class='txt-black f-32' style='width: 230rpx;'>订单时间：</view>{{item.submit_time}}</view>
 
@@ -124,27 +143,29 @@
 
 <view class="flex-row margin-top-100" wx:if="{{ctt==3}}">
   <view class="flex-1"></view>
-  <view class='' >
-    <navigator class='content margin-top padding-20 margin-bottom-20' url='../transportDetails/transportDetails?id={{item.id}}&ctt=3'wx:key='item' wx:for="{{list_7}}">
+  <view class=''>
+    <navigator class='content margin-top padding-20 margin-bottom-20' url='../transportDetails/transportDetails?id={{item.id}}&ctt=3' wx:key='item' wx:for="{{list_7}}">
       <view class='flex-row padding-left-40 height-70 flex-center'>
         <view class='f-32 txt-black'>运单号：{{item.orderno}}</view>
       </view>
-       <view class='flex-row padding-left-40 height-70 flex-center'>
+      <view class='flex-row padding-left-40 height-70 flex-center'>
         <view class='f-32 txt-black'>订单时间：{{item.submit_time}}</view>
       </view>
 
       <view class='flex-row padding-top-10'>
         <image src='{{uploadpath}}resource/dot.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-          <view class='margin-10 f-36 flex-1' style='color: #000;'>{{item.s_address_details}}</view>
-          
+         <view class='margin-10 f-36 flex-1' style='color: #000;width:580rpx;'>{{item.start_address}}</view>
+          <view class='margin-10  flex-1' style='color: #858A96;;width:580rpx;'>{{item.s_address_details}}</view>
+
         </view>
       </view>
       <view class='flex-row'>
         <image src='{{uploadpath}}resource/dot-yellow.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-          <view class='margin-10 f-36 flex-1' style='color: #000;'>{{item.e_address_details}}</view>
-          
+         <view class='margin-10 f-36 flex-1' style='color: #000;width:580rpx;'>{{item.end_address}}</view>
+          <view class='margin-10  flex-1' style='color: #858A96;;width:580rpx;'>{{item.e_address_details}}</view>
+
         </view>
       </view>
     </navigator>

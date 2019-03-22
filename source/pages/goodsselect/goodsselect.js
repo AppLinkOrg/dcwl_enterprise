@@ -80,6 +80,15 @@ class Content extends AppBase {
       this.Base.info("请至少添加一个货物");
       return;
     }
+    var goods = this.Base.getMyData().goods;
+    for (var i = 0; i < goods.length; i++) {
+      if (goods[i].val == 0) {
+        this.Base.info("请输入货物重量");
+        return;
+      }
+    }
+   
+    
     var ret = {
       goods: data.goods,
       weight: data.weight

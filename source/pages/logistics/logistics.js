@@ -28,7 +28,7 @@ class Content extends AppBase {
     memberApi.info({}, (info) => {
       console.log(info)
       that.Base.setMyData(info);
-      if (info.userrole_id == 2) {
+      if (info.company == 2) {
         var quoteferryapi = new QuoteferryApi();
         quoteferryapi.listcompany({ status: '4,5' }, (ret) => {
           this.Base.setMyData({ list_4: ret });
@@ -84,6 +84,22 @@ class Content extends AppBase {
     this.onMyShow();
   }
 
+  copy(e) {
+    console.log(e.target.dataset);
+    var that = this;
+    var data = '司机:' + e.target.dataset.name + '\n' + '联系方式:' + e.target.dataset.mobile + '\n' + '身份证:' + e.target.dataset.idcard + '\n' + '车辆:' + e.target.dataset.plate_number
+    wx.setClipboardData({
+      data: data,
+      success(res) {
+        wx.getClipboardData({
+          success(res) {
+            console.log(res.data) // data
+          }
+        })
+      }
+    })
+  }
+
  
 
   logistics(e){
@@ -112,4 +128,6 @@ body.bindcontact = content.bindcontact;
 
 body.logistics = content.logistics;
 body.order = content.order;
+body.copy = content.copy;
+
 Page(body)

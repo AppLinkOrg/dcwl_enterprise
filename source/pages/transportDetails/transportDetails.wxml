@@ -7,8 +7,8 @@
     <view class='flex-row padding-top-20'>
       <image src='{{uploadpath}}resource/qu.png' class='icon-30 margin-10 margin-left'></image>
       <view>
-        <view class='margin-10 f-36 flex-1' style='color: #000;'>{{info.start_address}}</view>
-        <view class='margin-10 flex-1' style='color: #858A96;'>{{info.s_address_details}}</view>
+        <view class='margin-10 f-36 flex-1' style='color: #000;width:580rpx;'>{{info.start_address}}</view>
+        <view class='margin-10 flex-1' style='color: #858A96;width:580rpx;'>{{info.s_address_details}}</view>
       </view>
 
     </view>
@@ -16,16 +16,40 @@
     <view class='flex-row'>
       <image src='{{uploadpath}}resource/song.png' class='icon-30 margin-10 margin-left'></image>
       <view>
-        <view class='margin-10 f-36 flex-1' style='color: #000;'>{{info.end_address}}</view>
-        <view class='margin-10 flex-1' style='color: #858A96;'>{{info.e_address_details}}</view>
+        <view class='margin-10 f-36 flex-1' style='color: #000;width:580rpx;'>{{info.end_address}}</view>
+        <view class='margin-10 flex-1' style='color: #858A96;width:580rpx;'>{{info.e_address_details}}</view>
       </view>
 
     </view>
 
     <view class='flex-row padding-bottom-30'>
       <view class='margin-left'>
+        <view class='margin-10 txt-black f-32 flex-row height-50'>
+          <view class='txt-black f-32' style='width: 180rpx;'>货主：</view>{{info.realname}}</view>
+        <view class='flex-row '>
+          <view class='margin-10 txt-black f-32 flex-row height-50' style='width: 580rpx;'>
+            <view class='txt-black f-32' style='width: 180rpx;'>联系方式：</view>{{info.mobile}}
+          </view>
+
+          <image src='{{uploadpath}}resource/phone2.png' bindtap='phoneCall' id="{{datas.mobile}}" class='icon-30 margin-10 margin-right-40'></image>
+        </view>
+
+      </view>
+    </view>
+
+    <view class='flex-row padding-bottom-30'>
+      <view class='margin-left'>
+        <view class='margin-10 txt-black f-32 flex-row height-50'>
+          <view class='txt-black f-32' style='width: 180rpx;'>货物：</view>{{info.goodsstr}}</view>
+        <view class='margin-10 txt-black f-32 flex-row height-50'>
+          <view class='txt-black f-32' style='width: 180rpx;'>重量：</view>{{info.weight}}</view>
+      </view>
+    </view>
+
+    <view class='flex-row padding-bottom-30'>
+      <view class='margin-left'>
         <view class='margin-10 txt-black f-32 flex-row height-70'>
-          <view class='txt-black f-32' style='width: 180rpx;'>车牌号：</view> {{info.vehicle_id_name}}</view>
+          <view class='txt-black f-32' style='width: 180rpx;'>车辆：</view> {{info.vehicle_id_name}}</view>
         <view class='margin-10 txt-black f-32 flex-row height-70'>
           <view class='txt-black f-32' style='width: 180rpx;'>司机：</view> {{info.driver_name}}</view>
         <view class='margin-10 txt-black f-32 flex-row height-70'>
@@ -34,13 +58,13 @@
           <view class='txt-black f-32' style='width: 180rpx;'>取货时间：</view>{{info.pickupgoods_time}}</view>
         <view class='margin-10 flex-row'>
           <view class='txt-black f-32' style='width: 180rpx;'>取货凭证：</view>
-          <image src='{{uploadpath}}photo/{{info.pickupgoods_img}}' class='voucher_img' bindtap='viewPhoto' id='{{uploadpath}}photo/{{info.pickupgoods_img}}'></image>
+          <image src='{{uploadpath}}photo/{{info.pickupgoods_img}}' class='voucher_img' bindtap='photo' id='{{uploadpath}}photo/{{info.pickupgoods_img}}'></image>
         </view>
         <view class='margin-10 txt-black f-32 flex-row height-50'>
           <view class='txt-black f-32' style='width: 180rpx;'>送达时间：</view>{{info.order_end_time}}</view>
         <view class='margin-10 flex-row'>
           <view class='txt-black f-32' style='width: 180rpx;'>送达凭证：</view>
-          <image src='{{uploadpath}}photo/{{info.receipt_img}}' class='voucher_img' bindtap='viewPhoto' id='{{uploadpath}}photo/{{info.receipt_img}}'></image>
+          <image src='{{uploadpath}}photo/{{info.receipt_img}}' class='voucher_img' bindtap='photo' id='{{uploadpath}}photo/{{info.receipt_img}}'></image>
         </view>
       </view>
 

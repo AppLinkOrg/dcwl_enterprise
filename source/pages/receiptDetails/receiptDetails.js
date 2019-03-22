@@ -25,12 +25,23 @@ class Content extends AppBase {
     var quoteferryapi = new QuoteferryApi();
     quoteferryapi.info({ id: this.Base.getMyData().id }, (ret) => {
       console.log(ret)
-      that.Base.setMyData({ info: ret });
+
+      var images = [ret.pickupgoods_img,
+      ret.vehicle_img,
+      ret.goods_img1,
+      ret.goods_img2,
+      ret.goods_img3,
+      ret.goods_img4]
+      that.Base.setMyData({ info: ret, images: images});
     });
+
 
   }
 
-
+  photo() {
+    console.log(this.Base.getMyData().images)
+    this.Base.viewGallary('photo', this.Base.getMyData().images, '')
+  }
 
 
 }
@@ -40,5 +51,5 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-
+body.photo = content.photo;
 Page(body)

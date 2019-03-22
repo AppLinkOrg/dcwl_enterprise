@@ -38,8 +38,8 @@
               <image class='icon' src='{{uploadpath}}resource/location1.png'></image>
             </view>
             <view class='flex-1' style='margin-left:10rpx;margin-right:10rpx;'>
-              <view class='txt-gray h6' wx:if="{{route==undefined}}">选择路线</view>
-              <view class='h6' wx:if="{{route!=undefined}}">
+              <view class='txt-gray h5' wx:if="{{route==undefined}}">选择路线</view>
+              <view class='h5' wx:if="{{route!=undefined}}">
                 <block wx:for="{{route}}" wx:key="k" wx:for-index="idx">
                   {{item.title}}
                   <block wx:if="{{(route.length-1)!=idx}}">-></block>
@@ -57,7 +57,7 @@
             <view>
               <image class='icon' src='{{uploadpath}}resource/calendar.png'></image>
             </view>
-            <view class='flex-1 txt-gray h6' style='margin-left:10rpx;margin-right:10rpx;'>
+            <view class='flex-1 txt-gray h5' style='margin-left:10rpx;margin-right:10rpx;'>
             <picker mode="date" bindchange="changeDate" value="{{date}}" start="{{startdate}}" end="{{enddate}}"  >
             <block  wx:if="{{date==undefined}}">取货时间</block>
             <block  wx:if="{{date!=undefined}}">{{date}}</block>
@@ -75,11 +75,11 @@
             <view>
               <image class='icon' src='{{uploadpath}}resource/goods.png'></image>
             </view>
-            <view class='flex-1 txt-gray h6' style='margin-left:10rpx;margin-right:10rpx;' wx:if="{{goods==undefined}}">选择货物
+            <view class='flex-1 txt-gray h5' style='margin-left:10rpx;margin-right:10rpx;' wx:if="{{goods==undefined}}">选择货物
             </view>
-            <view class='flex-1 txt-gray h6' style='margin-left:10rpx;margin-right:10rpx;' wx:if="{{goods!=undefined}}">
+            <view class='flex-1 txt-gray h5' style='margin-left:10rpx;margin-right:10rpx;' wx:if="{{goods!=undefined}}">
               <view wx:for="{{goods}}" wx:key="k" class='flex-row'>
-                <view class='flex-1 h6'>{{item.name}} {{item.val}}{{item.unit}}</view>
+                <view class='flex-1 h5'>{{item.name}} {{item.val}}{{item.unit}}</view>
               </view>
 
             </view>
@@ -95,7 +95,7 @@
               <image class='icon' src='{{uploadpath}}resource/remark.png'></image>
             </view>
             <view class='flex-1' style='margin-left:10rpx;margin-right:10rpx;'>
-              <textarea class='h6' style='width:100%' auto-height='{{true}}' placeholder='补充描述' maxlength='100' placeholder-style='color:#aaa' value='{{remark}}' bindinput='remarkChange'></textarea>
+              <textarea class='h5' style='width:100%' auto-height='{{true}}' placeholder='补充描述' maxlength='100' placeholder-style='color:#aaa' value='{{remark}}' bindinput='remarkChange'></textarea>
             </view>
           </view>
         </view>
@@ -106,11 +106,11 @@
               <image class='icon' src='{{uploadpath}}resource/phone2.png'></image>
             </view>
             <view class='flex-1' style='margin-left:10rpx;margin-right:10rpx;' wx:if="{{memberinfo.userrole_id==2}}">
-              <input class='h6' style='width:100%' auto-height='{{true}}' placeholder='手机号码' maxlength='11' placeholder-style='color:#aaa' value='{{mobile}}'></input>
+              <input class='h5' style='width:100%' auto-height='{{true}}' type='number' placeholder='手机号码' maxlength='11' placeholder-style='color:#aaa' value='{{mobile}}'></input>
             </view>
 
             <view class='flex-1' style='margin-left:10rpx;margin-right:10rpx;' wx:else>
-              <view class='h6' style='width:100%;' >{{mobile}}</view>
+              <view class='h5' style='width:100%;' >{{mobile}}</view>
               <!-- <input class='h6' style='width:100%' auto-height='{{true}}' placeholder='手机号码' maxlength='11' placeholder-style='color:#aaa' value='{{mobile}}'></input> -->
             </view>
 
@@ -127,19 +127,18 @@
               <image class='icon' src='{{uploadpath}}resource/user.png'></image>
             </view>
             <view class='flex-1' style='margin-left:10rpx;margin-right:10rpx;'>
-              <input class='h6' style='width:100%' auto-height='{{true}}' placeholder='真实姓名' maxlength='10' placeholder-style='color:#aaa' value='{{realname}}' bindinput='realnameChange'></input>
+              <input class='h5' style='width:100%' auto-height='{{true}}' placeholder='真实姓名' maxlength='10' placeholder-style='color:#aaa' value='{{realname}}' bindinput='realnameChange'></input>
             </view>
           </view>
         </view>
 
         <view class='padding-20 ' wx:if="{{userrole_id==2}}">
-
           <view class='flex-row flex-center padding-20' style='padding-top:0rpx;'>
             <view>
               <image class='icon' src='{{uploadpath}}resource/money.png'></image>
             </view>
             <view class='flex-1' style='margin-left:10rpx;margin-right:10rpx;'>
-              <input class='h6' style='width:100%' type='digit' auto-height='{{true}}' placeholder='总价' maxlength='10' placeholder-style='color:#aaa' value='{{quoteamount}}' bindinput='quoteamountChange'></input>
+              <input class='h5' style='width:100%' type='digit' auto-height='{{true}}' placeholder='总价' maxlength='10' placeholder-style='color:#aaa' value='{{quoteamount}}' bindinput='quoteamountChange'></input>
             </view>
           </view>
         </view>

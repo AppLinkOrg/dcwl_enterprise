@@ -17,7 +17,7 @@
 
       <view class='flex-center flex-row '>
         <view class="flex-1"></view>
-        <button class='bg-red txt-white text-center margin-10 f-32' bindtap='logistics' id='{{item.month}}' style='width: 400rpx;'>了解详情</button>
+        <button class='bg-red txt-white text-center margin-10 f-32' bindtap='logistics' id='{{item.year}}-{{item.month}}' style='width: 400rpx;'>了解详情</button>
         <view class="flex-1"></view>
       </view>
     </view>

@@ -10,24 +10,31 @@
     <view class='flex-row padding-top-20'>
       <image src='{{uploadpath}}resource/dot.png' class='icon-20 margin-10 margin-left'></image>
       <view>
-        <view class='margin-10 f-32 txt-black'>装货地址：{{info.s_address_details}}</view>
+        <view class='margin-10 f-32 txt-black' style='width:600rpx;'>装货地址：{{info.s_address_details}}</view>
       </view>
     </view>
 
     <view class='flex-row'>
       <image src='{{uploadpath}}resource/dot-yellow.png' class='icon-20 margin-10 margin-left'></image>
       <view>
-        <view class='margin-10 f-32 txt-black'>卸货地址：{{info.e_address_details}}</view>
+        <view class='margin-10 f-32 txt-black' style='width:600rpx;'>卸货地址：{{info.e_address_details}}</view>
       </view>
     </view>
 
     <view class='flex-row'>
-      <image src='{{uploadpath}}resource/cargo.png' class='icon-30 margin-10 margin-left'></image>
-      <view class='flex-row'>
-        <view class='margin-10 f-32 txt-black' style='width: 230rpx;'>货物：{{info.goodsstr}}</view>
-        <view class='margin-10 f-32 txt-black'>重量：{{info.weight}}</view>
+        <image src='{{uploadpath}}resource/cargo.png' class='icon-30 margin-10 margin-left'></image>
+        <!-- <view class='flex-row'> -->
+          <view class='margin-10 f-32 txt-black' >货物：{{info.goodsstr}}</view>
+          <!-- <view class='margin-10 f-32 txt-black'>重量：{{info.weight}}</view>
+        </view> -->
       </view>
-    </view>
+
+      <view class='flex-row'>
+        <image src='{{uploadpath}}resource/cargo.png' class='icon-30 margin-10 margin-left'></image>
+        
+        <view class='margin-10 f-32 txt-black'>重量：{{info.weight}}</view>
+      
+      </view>
 
     <view class='flex-row'>
       <image src='{{uploadpath}}resource/driver.png' class='icon-30 margin-10 margin-left'></image>
@@ -39,7 +46,7 @@
     <view class='flex-row'>
       <image src='{{uploadpath}}resource/id-card.png' class='icon-30 margin-10 margin-left'></image>
 
-      <view class='margin-10 f-32 txt-black'>身份证号码：545892336658996</view>
+      <view class='margin-10 f-32 txt-black'>身份证号码：{{info.driver_idcard}}</view>
 
     </view>
 
@@ -50,11 +57,7 @@
 
     </view>
 
-    <view class='flex-center flex-row margin-bottom-40'>
-      <view class="flex-1"></view>
-      <button class='bg-blue txt-white text-center margin-20 margin-top-60 f-36' bindtap='copy' style='width: 420rpx;'>一键复制订单信息</button>
-      <view class="flex-1"></view>
-    </view>
+    
 
   </view>
 </view>

@@ -13,11 +13,11 @@
         </view>
         <view class=' txt-black f-32 flex-row padding-top-10'>
           <view class='txt-black f-32' style='width: 160rpx;'>取货地点：</view>
-          <view class='txt-black f-32 dian01 ' style='width: 502rpx;'>{{data.s_address_details}}</view>
+          <view class='txt-black f-32  ' style='width: 502rpx;'>{{data.s_address_details}}</view>
         </view>
         <view class=' txt-black f-32 flex-row padding-top-10'>
           <view class='txt-black f-32' style='width: 160rpx;'>到货地点：</view>
-          <view class='txt-black f-32 dian01 ' style='width: 502rpx;'>{{data.e_address_details}}</view>
+          <view class='txt-black f-32  ' style='width: 502rpx;'>{{data.e_address_details}}</view>
         </view>
         <view class=' txt-black f-32 flex-row padding-top-10'>
           <view class='txt-black f-32' style='width: 160rpx;'>路程：</view>{{data.distance}}
@@ -36,24 +36,33 @@
     </view>
 
     <form>
-      <view class='margin-left padding-top-40 '>
+
+      <view class='margin-left padding-top-30 ' wx:for="{{list}}" wx:for-index='i'>
+        <view class='flex-row'>
+          <view>司机{{i+1}} </view>
+          <view class='flex-1'></view>
+          <view class='margin-right-40' bindtap='delete' id="{{i}}">删除</view>
+        </view>
         <view class='margin-10  flex-row height-70 margin-bottom-40 input flex-center' style='width: 94%;'>
-          <picker bindchange="bindPickerDriver" value="{{index}}" range-key='name' range="{{driver}}" class='txt-black f-32 flex-row flex-center margin-left-20' style='width: 100%'>
-           <view wx:if="{{!driver[driver_index].name}}" style='width: 600rpx;'>请选择司机</view>{{driver[driver_index].name}}
+          <picker bindchange="bindPickerDriver" value="{{index}}" id="{{i}}" range-key='name' range="{{driver}}" class='txt-black f-32 flex-row flex-center margin-left-20' style='width: 100%'>
+            {{item.driver.id==0?"请选择司机":item.driver.name}}
           </picker>
           <view class="flex-1"></view>
           <image src='{{uploadpath}}resource/direction.png' class='icon-20 margin-10'></image>
         </view>
 
         <view class='margin-10  flex-row height-70 margin-bottom-40 input flex-center' style='width: 94%;'>
-          <picker bindchange="bindPickerVehicle" value="{{vehicle_index}}" range-key='plate_number' range="{{vehicle}}" class='txt-black f-32 flex-row flex-center margin-left-20' style='width: 100%'>
-            <view wx:if="{{!vehicle[vehicle_index].plate_number}}" style='width: 600rpx;'>请选择车辆</view>{{vehicle[vehicle_index].plate_number}}
+          <picker bindchange="bindPickerVehicle" value="{{vehicle_index}}" id="{{i}}" range-key='plate_number' range="{{vehicle}}" class='txt-black f-32 flex-row flex-center margin-left-20' style='width: 100%'>
+            {{item.vehicle.id==0?"请选择车辆":item.vehicle.plate_number}}
           </picker>
           <view class="flex-1"></view>
           <image src='{{uploadpath}}resource/direction.png' class='icon-20 margin-10'></image>
         </view>
-
       </view>
+
+      <view class='margin-left-50 f-28' bindtap='add'>+ 添加司机、车辆</view>
+
+
 
       <view class='flex-center flex-row margin-top-200 padding-bottom-50'>
         <view class="flex-1"></view>

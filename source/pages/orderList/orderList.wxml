@@ -12,18 +12,22 @@
       <view class='flex-row padding-top-10'>
         <image src='{{uploadpath}}resource/dot.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-          <view class='margin-10 f-36 flex-1' style='color: #000;'>{{item.start_address}}</view>
-          <view class='margin-10 flex-1' style='color: #858A96;'>{{item.s_address_details}}</view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;width:580rpx;'>{{item.start_address}}</view>
+          <view class='margin-10 flex-1' style='color: #858A96; width:580rpx;'>{{item.s_address_details}}</view>
         </view>
       </view>
       <view class='flex-row'>
         <image src='{{uploadpath}}resource/dot-yellow.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-          <view class='margin-10 f-36 flex-1' style='color: #000;'>{{item.end_address}}</view>
-          <view class='margin-10 flex-1' style='color: #858A96;'>{{item.e_address_details}}</view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;width:580rpx;'>{{item.end_address}}</view>
+          <view class='margin-10 flex-1' style='color: #858A96;width:580rpx;'>{{item.e_address_details}}</view>
         </view>
       </view>
     </navigator>
+
+    <view wx:if="{{list.length==0}}">
+      还没有订单数据
+    </view>
   </view>
   <view class="flex-1"></view>
 </view>

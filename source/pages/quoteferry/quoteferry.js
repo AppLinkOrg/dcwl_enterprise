@@ -19,6 +19,8 @@ class Content extends AppBase {
     var startdate = this.Base.util.FormatDate(new Date(tomorrow));
     var enddate = this.Base.util.FormatDate(new Date(aftermonth));
     this.Base.setMyData({ mobile: "", realname: "", remark: "", startdate: startdate, enddate: enddate });
+
+    console.log('tomorrow:' + enddate)
   }
   onMyShow() {
     var that = this;
@@ -56,7 +58,7 @@ class Content extends AppBase {
     var memberApi = new MemberApi();
     memberApi.info({}, (info) => {
       console.log(info)
-      that.Base.setMyData({ userrole_id: info.userrole_id});
+      that.Base.setMyData({ userrole_id: info.company});
      
     })
 
@@ -157,6 +159,7 @@ class Content extends AppBase {
     console.log(req);
     api.create(req,
       (ret) => {
+        console.log(ret);
         wx.redirectTo({
           url: '/pages/success/success?backpage=home&backmode=switch&title=询价提交成功',
         })

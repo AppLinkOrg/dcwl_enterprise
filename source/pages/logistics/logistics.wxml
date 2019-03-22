@@ -55,30 +55,34 @@
 
       </view>
 
-      <view class='flex-row'>
-        <image src='{{uploadpath}}resource/driver.png' class='icon-30 margin-10 margin-left'></image>
+      <view wx:for="{{item.dispatch}}">
 
-        <view class='margin-10 f-32 txt-black' wx:if="{{item.driver_name}}">司机：{{item.driver_name}}</view>
-        <view class='margin-10 f-32 txt-red' wx:else>司机：正在安排司机接单</view>
-      </view>
+        <view class='flex-row'>
+          <image src='{{uploadpath}}resource/driver.png' class='icon-30 margin-10 margin-left'></image>
 
-      <view class='flex-row'>
-        <image src='{{uploadpath}}resource/phone.png' class='icon-30 margin-10 margin-left'></image>
+          <view class='margin-10 f-32 txt-black' wx:if="{{item.driver_name}}">司机：{{item.driver_name}}</view>
+          <view class='margin-10 f-32 txt-red' wx:else>司机：正在安排司机接单</view>
+        </view>
 
-        <view class='margin-10 f-32 txt-black'>联系电话：{{item.driver_mobile}}</view>
-      </view>
+        <view class='flex-row'>
+          <image src='{{uploadpath}}resource/phone.png' class='icon-30 margin-10 margin-left'></image>
 
-      <view class='flex-row'>
-        <image src='{{uploadpath}}resource/id-card.png' class='icon-30 margin-10 margin-left'></image>
+          <view class='margin-10 f-32 txt-black'>联系电话：{{item.driver_mobile}}</view>
+        </view>
 
-        <view class='margin-10 f-32 txt-black'>身份证号码：{{item.driver_idcard}}</view>
+        <view class='flex-row'>
+          <image src='{{uploadpath}}resource/id-card.png' class='icon-30 margin-10 margin-left'></image>
 
-      </view>
+          <view class='margin-10 f-32 txt-black'>身份证号码：{{item.driver_idcard}}</view>
 
-      <view class='flex-row'>
-        <image src='{{uploadpath}}resource/palte.png' class='icon-30 margin-10 margin-left'></image>
+        </view>
 
-        <view class='margin-10 f-32 txt-black'>车牌：{{item.vehicle_plate_number}}</view>
+        <view class='flex-row'>
+          <image src='{{uploadpath}}resource/palte.png' class='icon-30 margin-10 margin-left'></image>
+
+          <view class='margin-10 f-32 txt-black'>车牌：{{item.vehicle_plate_number}}</view>
+
+        </view>
 
       </view>
 
@@ -155,7 +159,7 @@
       <view class='flex-row padding-top-10'>
         <image src='{{uploadpath}}resource/dot.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-         <view class='margin-10 f-36 flex-1' style='color: #000;width:580rpx;'>{{item.start_address}}</view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;width:580rpx;'>{{item.start_address}}</view>
           <view class='margin-10  flex-1' style='color: #858A96;;width:580rpx;'>{{item.s_address_details}}</view>
 
         </view>
@@ -163,7 +167,7 @@
       <view class='flex-row'>
         <image src='{{uploadpath}}resource/dot-yellow.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-         <view class='margin-10 f-36 flex-1' style='color: #000;width:580rpx;'>{{item.end_address}}</view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;width:580rpx;'>{{item.end_address}}</view>
           <view class='margin-10  flex-1' style='color: #858A96;;width:580rpx;'>{{item.e_address_details}}</view>
 
         </view>

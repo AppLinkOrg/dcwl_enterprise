@@ -120,7 +120,7 @@ class Content extends AppBase {
     var list = that.Base.getMyData().list;
     console.log(list)
 
-    this.gotoDispatchOneByOne(list);
+    // this.gotoDispatchOneByOne(list);
     
     // if (that.Base.getMyData().driver_id == undefined) {
     //   this.Base.info("请选择司机");
@@ -132,6 +132,9 @@ class Content extends AppBase {
       content: '请确认订单信息',
       success(res) {
         if (res.confirm) {
+          var id = e.currentTarget.id
+          this.gotoDispatchOneByOne(list,id);
+
           var quoteferryapi = new QuoteferryApi();
           quoteferryapi.dispatch({
             id: e.currentTarget.id,
@@ -153,7 +156,7 @@ class Content extends AppBase {
   }
 
 
-  gotoDispatchOneByOne(list) {
+  gotoDispatchOneByOne(list,id) {
     var dispatchApi = new DispatchApi();
     if(list.length==0){
       return;
@@ -166,7 +169,7 @@ class Content extends AppBase {
       }
 
       var data = {
-        quoteferry_id: e.currentTarget.id,
+        quoteferry_id: id,
         driver_id: list[i].driver.id,
         vehicle_id: list[i].vehicle.id
       }

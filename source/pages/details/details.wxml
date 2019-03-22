@@ -8,14 +8,16 @@
       <view class='flex-row padding-left-20 height-50 flex-center'>
         <view class='f-32 txt-black'>订单时间：{{datas.submit_time}}</view>
       </view>
-      <view class='flex-row padding-left-20 height-50 flex-center'>
-        <view class='f-32 txt-black'>车牌号：{{datas.vehicle_plate_number}}</view>
-      </view>
-      <view class='flex-row padding-left-20 height-50 flex-center'>
-        <view class='f-32 txt-black'>司机：{{datas.driver_name}}</view>
-      </view>
-      <view class='flex-row padding-left-20 height-50 flex-center'>
-        <view class='f-32 txt-black'>司机电话：{{datas.driver_mobile}}</view>
+      <view wx:for="{{datas.dispatch}}">
+        <view class='flex-row padding-left-20 height-50 flex-center'>
+          <view class='f-32 txt-black'>司机：{{item.name}}</view>
+        </view>
+        <view class='flex-row padding-left-20 height-50 flex-center'>
+          <view class='f-32 txt-black'>司机电话：{{item.mobile}}</view>
+        </view>
+        <view class='flex-row padding-left-20 height-50 flex-center'>
+          <view class='f-32 txt-black'>车牌号：{{item.plate_number}}</view>
+        </view>
       </view>
     </view>
 
@@ -78,6 +80,19 @@
 
     <view class='content margin-top-20 padding-20 margin-bottom-20'>
       <view class='flex-row padding-top-20'>
+        <image src='{{uploadpath}}resource/page-blue.png' class='icon-30 margin-10 margin-left'></image>
+        <view class='margin-10 f-36 flex-1' style='color: #000;'>单据图片</view>
+      </view>
+      <view class='flex-row padding-left-40  flex-center'>
+
+
+        <image src='{{uploadpath}}quoteferry/{{info.receipt_img1}}' class='voucher_img' bindtap='photo' id='{{uploadpath}}quoteferry/{{info.receipt_img}}'></image>
+
+      </view>
+    </view>
+
+    <view class='content margin-top-20 padding-20 margin-bottom-20'>
+      <view class='flex-row padding-top-20'>
         <image src='{{uploadpath}}resource/cost.png' class='icon-30 margin-10 margin-left'></image>
         <view class='margin-10 f-36 flex-1' style='color: #000;'>费用统计</view>
       </view>
@@ -99,4 +114,3 @@
   </view>
   <view class="flex-1"></view>
 </view>
-

@@ -10,7 +10,7 @@
   </view>
 
   <view class='catitem flex-1 bg-white flex-row flex-column padding-30' wx:key="k" bindtap='bindcompleted'>
-    <view class=' text-center  txt-gray {{ctt==3?"to-white":""}} top   txt-bold' bindtap='bindcompleted'>已完成 {{list_7.length}}</view>
+    <view class=' text-center  txt-gray {{ctt==3?"to-white":""}} top   txt-bold' bindtap='bindcompleted'>待上传 {{list_7.length}}</view>
     <view style='height:4rpx;width:120rpx;' class="{{ctt==3?'bg-primary':''}}"></view>
   </view>
 
@@ -55,40 +55,36 @@
 
       </view>
 
-      <view wx:for="{{item.dispatch}}">
+      <view wx:for="{{item.dispatch}}" wx:for-index='i'>
 
         <view class='flex-row'>
           <image src='{{uploadpath}}resource/driver.png' class='icon-30 margin-10 margin-left'></image>
-
-          <view class='margin-10 f-32 txt-black' wx:if="{{item.driver_name}}">司机：{{item.driver_name}}</view>
+          <view class='margin-10 f-32 txt-black' wx:if="{{item.name}}">司机 {{i+1}}：{{item.name}}</view>
           <view class='margin-10 f-32 txt-red' wx:else>司机：正在安排司机接单</view>
         </view>
 
         <view class='flex-row'>
           <image src='{{uploadpath}}resource/phone.png' class='icon-30 margin-10 margin-left'></image>
-
-          <view class='margin-10 f-32 txt-black'>联系电话：{{item.driver_mobile}}</view>
+          <view class='margin-10 f-32 txt-black'>联系电话：{{item.mobile}}</view>
         </view>
 
         <view class='flex-row'>
           <image src='{{uploadpath}}resource/id-card.png' class='icon-30 margin-10 margin-left'></image>
-
-          <view class='margin-10 f-32 txt-black'>身份证号码：{{item.driver_idcard}}</view>
-
+          <view class='margin-10 f-32 txt-black'>身份证号码：{{item.idcard}}</view>
         </view>
 
         <view class='flex-row'>
           <image src='{{uploadpath}}resource/palte.png' class='icon-30 margin-10 margin-left'></image>
-
-          <view class='margin-10 f-32 txt-black'>车牌：{{item.vehicle_plate_number}}</view>
-
+          <view class='margin-10 f-32 txt-black'>车牌：{{item.plate_number}}</view>
         </view>
 
       </view>
 
       <view class='flex-center flex-row '>
         <view class="flex-1"></view>
-        <button class='bg-blue txt-white text-center margin-20 margin-top-60 f-36' bindtap='copy' style='width: 420rpx;' data-name='{{item.driver_name}}' data-idcard='{{item.driver_idcard}}' data-plate_number='{{item.vehicle_plate_number}}' data-mobile='{{item.driver_mobile}}'>一键复制订单信息</button>
+        <!-- <button class='bg-blue txt-white text-center margin-20 margin-top-60 f-36' bindtap='copy' style='width: 420rpx;' data-name='{{item.driver_name}}' data-idcard='{{item.driver_idcard}}' data-plate_number='{{item.vehicle_plate_number}}' data-mobile='{{item.driver_mobile}}'>一键复制订单信息</button> -->
+
+        <button class='bg-blue txt-white text-center margin-20 margin-top-60 f-36' bindtap='copy' style='width: 420rpx;' data-dispatch='{{item.dispatch}}' >一键复制订单信息</button>
         <view class="flex-1"></view>
       </view>
     </view>

@@ -48,27 +48,42 @@
 
     <view class='flex-row padding-bottom-30'>
       <view class='margin-left'>
-        <view class='margin-10 txt-black f-32 flex-row height-70'>
+        <!-- <view class='margin-10 txt-black f-32 flex-row height-70'>
           <view class='txt-black f-32' style='width: 180rpx;'>车辆：</view> {{info.vehicle_id_name}}</view>
         <view class='margin-10 txt-black f-32 flex-row height-70'>
-          <view class='txt-black f-32' style='width: 180rpx;'>司机：</view> {{info.driver_name}}</view>
+          <view class='txt-black f-32' style='width: 180rpx;'>司机：</view> {{info.driver_name}}</view> -->
         <view class='margin-10 txt-black f-32 flex-row height-70'>
           <view class='txt-black f-32' style='width: 180rpx;'>接单时间：</view>{{info.receipt_time}}</view>
         <view class='margin-10 txt-black f-32 flex-row height-70'>
           <view class='txt-black f-32' style='width: 180rpx;'>取货时间：</view>{{info.pickupgoods_time}}</view>
-        <view class='margin-10 flex-row'>
+        <!-- <view class='margin-10 flex-row'>
           <view class='txt-black f-32' style='width: 180rpx;'>取货凭证：</view>
           <image src='{{uploadpath}}photo/{{info.pickupgoods_img}}' class='voucher_img' bindtap='photo' id='{{uploadpath}}photo/{{info.pickupgoods_img}}'></image>
-        </view>
+        </view> -->
         <view class='margin-10 txt-black f-32 flex-row height-50'>
           <view class='txt-black f-32' style='width: 180rpx;'>送达时间：</view>{{info.order_end_time}}</view>
         <view class='margin-10 flex-row'>
-          <view class='txt-black f-32' style='width: 180rpx;'>送达凭证：</view>
-          <image src='{{uploadpath}}photo/{{info.receipt_img}}' class='voucher_img' bindtap='photo' id='{{uploadpath}}photo/{{info.receipt_img}}'></image>
+          <view class='txt-black f-32' style='width: 180rpx;'>单据图片：</view>
+          <image src='{{uploadpath}}quoteferry/{{info.receipt_img1}}' class='voucher_img' bindtap='photo' id='{{uploadpath}}quoteferry/{{info.receipt_img}}'></image>
         </view>
       </view>
 
+     
+
     </view>
+
+     <view class='flex-row margin-left padding-bottom-30' wx:for="{{info.dispatch}}" wx:key="item">
+        <!-- <view class='' > -->
+        <view class='margin-10 txt-black f-32 flex-row height-50' >
+          <view class='txt-black f-32' style='width: 110rpx;'>司机：</view>
+          <view style='width: 180rpx; '>{{item.name}}</view>
+        </view>
+        <view class='margin-10 txt-black f-32 flex-row height-50'>
+          <view class='txt-black f-32' style='width: 110rpx;'>车辆：</view>
+          <view style='width: 180rpx;'>{{item.plate_number}}</view>
+        </view>
+        <!-- </view> -->
+      </view>
   </view>
 
   <view class="flex-1"></view>

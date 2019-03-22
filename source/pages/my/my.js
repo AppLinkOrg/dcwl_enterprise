@@ -5,6 +5,10 @@ import { ContentApi } from "../../apis/content.api";
 import { MemberApi } from "../../apis/member.api";
 import { InstApi } from "../../apis/inst.api.js";
 
+import { VehicleApi } from '../../apis/vehicle.api';
+
+
+
 class Content extends AppBase {
   constructor() {
     super();
@@ -27,7 +31,11 @@ class Content extends AppBase {
       }
     });
 
+    var vehicleApi = new VehicleApi();
 
+    vehicleApi.annualsurvey({},(res)=>{
+      this.Base.setMyData({ vehicle: res });
+    });
     
   }
   

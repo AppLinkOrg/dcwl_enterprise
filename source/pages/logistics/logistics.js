@@ -87,7 +87,12 @@ class Content extends AppBase {
   copy(e) {
     console.log(e.target.dataset);
     var that = this;
-    var data = '司机:' + e.target.dataset.name + '\n' + '联系方式:' + e.target.dataset.mobile + '\n' + '身份证:' + e.target.dataset.idcard + '\n' + '车辆:' + e.target.dataset.plate_number
+    var data='';
+    var dispatch = e.target.dataset.dispatch;
+    for (var i = 0; i < dispatch.length;i++){
+      data = data + '司机:' + dispatch[i].name + '\n' + '联系方式:' + dispatch[i].mobile + '\n' + '身份证:' + dispatch[i].idcard + '\n' + '车辆:' + dispatch[i].plate_number + '\n \n'
+    }
+    // data = '司机:' + e.target.dataset.name + '\n' + '联系方式:' + e.target.dataset.mobile + '\n' + '身份证:' + e.target.dataset.idcard + '\n' + '车辆:' + e.target.dataset.plate_number
     wx.setClipboardData({
       data: data,
       success(res) {

@@ -13,9 +13,10 @@
   <navigator url='../orderList/orderList' class='item item-split txt-black'>全部订单</navigator>
   <navigator url='../count/count'  class='item item-split txt-black'>订单统计</navigator>
   <navigator url='../quoteferry/quoteferry' class='item item-split txt-black'>直接派单</navigator>
-  <!-- <navigator url='../inspectVehicle/inspectVehicle' class='item item-split txt-black'>车辆年检提醒</navigator> -->
+  <navigator url='../inspectVehicle/inspectVehicle' class='item item-split txt-black'>车辆年检提醒</navigator>
+  <navigator url='../inspectVehicle/inspectVehicle' class='item item-split txt-black'>车辆保险提醒</navigator>
   <navigator class='item '>
-    <button open-type="contact" class='clear-button  '>联系客服</button>
+    <button open-type="contact" class='clear-button '>联系客服</button>
   </navigator>
 </view>
 

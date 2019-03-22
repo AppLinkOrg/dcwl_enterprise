@@ -22,42 +22,39 @@
     </view>
 
     <view class='flex-row'>
-        <image src='{{uploadpath}}resource/cargo.png' class='icon-30 margin-10 margin-left'></image>
-        <!-- <view class='flex-row'> -->
-          <view class='margin-10 f-32 txt-black' >货物：{{info.goodsstr}}</view>
-          <!-- <view class='margin-10 f-32 txt-black'>重量：{{info.weight}}</view>
+      <image src='{{uploadpath}}resource/cargo.png' class='icon-30 margin-10 margin-left'></image>
+      <!-- <view class='flex-row'> -->
+      <view class='margin-10 f-32 txt-black'>货物：{{info.goodsstr}}</view>
+      <!-- <view class='margin-10 f-32 txt-black'>重量：{{info.weight}}</view>
         </view> -->
+    </view>
+
+    <view wx:for="{{info.dispatch}}" wx:for-index='i'>
+
+      <view class='flex-row'>
+        <image src='{{uploadpath}}resource/driver.png' class='icon-30 margin-10 margin-left'></image>
+        <view class='margin-10 f-32 txt-black' wx:if="{{item.name}}">司机：{{item.name}}</view>
+        <view class='margin-10 f-32 txt-red' wx:else>司机：正在安排司机接单</view>
       </view>
 
       <view class='flex-row'>
-        <image src='{{uploadpath}}resource/cargo.png' class='icon-30 margin-10 margin-left'></image>
-        
-        <view class='margin-10 f-32 txt-black'>重量：{{info.weight}}</view>
-      
+        <image src='{{uploadpath}}resource/phone.png' class='icon-30 margin-10 margin-left'></image>
+        <view class='margin-10 f-32 txt-black'>联系电话：{{item.mobile}}</view>
       </view>
 
-    <view class='flex-row'>
-      <image src='{{uploadpath}}resource/driver.png' class='icon-30 margin-10 margin-left'></image>
+      <view class='flex-row'>
+        <image src='{{uploadpath}}resource/id-card.png' class='icon-30 margin-10 margin-left'></image>
+        <view class='margin-10 f-32 txt-black'>身份证号码：{{item.idcard}}</view>
+      </view>
 
-      <view class='margin-10 f-32 txt-black'>司机：{{info.driver_name}}</view>
-
-    </view>
-
-    <view class='flex-row'>
-      <image src='{{uploadpath}}resource/id-card.png' class='icon-30 margin-10 margin-left'></image>
-
-      <view class='margin-10 f-32 txt-black'>身份证号码：{{info.driver_idcard}}</view>
+      <view class='flex-row'>
+        <image src='{{uploadpath}}resource/palte.png' class='icon-30 margin-10 margin-left'></image>
+        <view class='margin-10 f-32 txt-black'>车牌：{{item.plate_number}}</view>
+      </view>
 
     </view>
 
-    <view class='flex-row'>
-      <image src='{{uploadpath}}resource/palte.png' class='icon-30 margin-10 margin-left'></image>
 
-      <view class='margin-10 f-32 txt-black'>车牌：{{info.vehicle_id_name}}</view>
-
-    </view>
-
-    
 
   </view>
 </view>

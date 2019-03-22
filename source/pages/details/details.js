@@ -26,7 +26,36 @@ class Content extends AppBase {
     var quoteferryapi = new QuoteferryApi();
     quoteferryapi.info({ id: this.Base.getMyData().id }, (ret) => {
       console.log(ret)
-      this.Base.setMyData({ datas: ret });
+
+      var images = [
+        ret.pickupgoods_img1,
+        ret.pickupgoods_img2,
+        ret.pickupgoods_img3,
+        ret.pickupgoods_img4,
+        ret.pickupgoods_img5,
+        ret.pickupgoods_img6,
+        ret.receipt_img1,
+        ret.receipt_img2,
+        ret.receipt_img3,
+        ret.receipt_img4,
+        ret.receipt_img5,
+        ret.receipt_img6,
+        ret.goods_img1,
+        ret.goods_img2,
+        ret.goods_img3,
+        ret.goods_img4,
+        ret.goods_img5,
+        ret.goods_img6
+      ]
+
+      for (var i = 0; i < images.length; i++) {
+        if (images[i] == undefined || images[i] == "undefined" || images[i] == "" || images[i] == null) {
+          console.log('22')
+          images.splice(i, 1)
+          i = i - 1;
+        }
+      }
+      this.Base.setMyData({ datas: ret,images: images });
     });
 
   }

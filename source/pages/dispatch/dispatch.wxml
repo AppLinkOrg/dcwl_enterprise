@@ -64,7 +64,7 @@
 
 
 
-      <view class='flex-center flex-row margin-top-200 padding-bottom-50'>
+      <view class='flex-center flex-row margin-top-100 padding-bottom-50'>
         <view class="flex-1"></view>
         <button class='bg-blue txt-white text-center margin-20 f-32' bindtap='dispatch' id='{{data.id}}' style='width: 200rpx;'>确定派单</button>
         <view class="flex-1"></view>

@@ -166,8 +166,8 @@ class Content extends AppBase {
     var vehiclelist = [];
     var list = that.Base.getMyData().list;
     console.log(list)
-
-    // this.gotoDispatchOneByOne(list);
+    var id = e.currentTarget.id
+    this.gotoDispatchOneByOne(list,id);
 
     // if (that.Base.getMyData().driver_id == undefined) {
     //   this.Base.info("请选择司机");
@@ -179,8 +179,9 @@ class Content extends AppBase {
       content: '请确认订单信息',
       success(res) {
         if (res.confirm) {
+          var that=this;
           var id = e.currentTarget.id
-          this.gotoDispatchOneByOne(list, id);
+          // that.gotoDispatchOneByOne(list, id);
 
           var quoteferryapi = new QuoteferryApi();
           quoteferryapi.dispatch({
@@ -209,7 +210,7 @@ class Content extends AppBase {
     var i = 0;
     if (list[i]['driver'] == undefined || list[i]['vehicle'] == undefined) {
       list.splice(i, 1);
-      this.gotoDispatchOneByOne(list);
+      this.gotoDispatchOneByOne(list,id);
       return;
     }
 
@@ -222,7 +223,7 @@ class Content extends AppBase {
     dispatchApi.dispatch1(data, (res) => {
       console.log(res)
       list.splice(i, 1);
-      this.gotoDispatchOneByOne(list);
+      this.gotoDispatchOneByOne(list,id);
     })
 
   }

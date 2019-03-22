@@ -67,3 +67,11 @@
   width: 340rpx;
   height: 250rpx;
 }
+
+.count{
+  width: 60rpx;
+  height: 40rpx;
+  border-radius: 10rpx;
+  color: #fff;
+
+}

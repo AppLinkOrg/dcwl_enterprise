@@ -1,66 +1,48 @@
-// pages/inspectVehicle/inspectVehicle.js
-Page({
+// pages/content/content.js
+import { AppBase } from "../../appbase";
+import { ApiConfig } from "../../apis/apiconfig";
+import { ContentApi } from "../../apis/content.api";
+import { MemberApi } from "../../apis/member.api";
+import { InstApi } from "../../apis/inst.api.js";
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
+import { VehicleApi } from '../../apis/vehicle.api';
 
-  },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
 
-  },
+class Content extends AppBase {
+  constructor() {
+    super();
+  }
+  onLoad(options) {
+    this.Base.Page = this;
+    //options.id=5;
+    super.onLoad(options);
+    var type=options.type;
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+    var vehicleApi = new VehicleApi();
 
-  },
+    vehicleApi.annualsurvey({}, (res) => {
+      if(type==1){
+        var ret = res.inspect
+      }else{
+        var ret = res.insurance
+      }
+      this.Base.setMyData({ vehicle: ret, type: type });
+    });
+  }
+  onMyShow() {
+    var that = this;
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+    
 
   }
-})
+
+  
+}
+var content = new Content();
+var body = content.generateBodyJson();
+body.onLoad = content.onLoad;
+body.onMyShow = content.onMyShow;
+body.changePlayinback = content.changePlayinback;
+body.jump = content.jump;
+Page(body)

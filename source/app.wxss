@@ -555,6 +555,9 @@ button[disabled][type=primary] {
 .margin-left-10 {
   margin-left: 10rpx;
 }
+.margin-left-20 {
+  margin-left: 20rpx;
+}
 
 .margin-left-30 {
   margin-left: 30rpx;

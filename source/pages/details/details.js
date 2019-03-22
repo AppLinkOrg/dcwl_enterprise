@@ -60,6 +60,11 @@ class Content extends AppBase {
 
   }
 
+  photo() {
+    console.log(this.Base.getMyData().images)
+    this.Base.viewGallary('quoteferry', this.Base.getMyData().images, '')
+  }
+
 
 }
 
@@ -69,5 +74,5 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 
-
+body.photo = content.photo;
 Page(body)

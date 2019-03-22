@@ -86,7 +86,7 @@
       <view class='flex-row padding-left-40  flex-center'>
 
 
-        <image src='{{uploadpath}}quoteferry/{{info.receipt_img1}}' class='voucher_img' bindtap='photo' id='{{uploadpath}}quoteferry/{{info.receipt_img}}'></image>
+        <image src='{{uploadpath}}quoteferry/{{datas.receipt_img1}}' class='voucher_img' bindtap='photo' id='{{uploadpath}}quoteferry/{{datas.receipt_img}}'></image>
 
       </view>
     </view>

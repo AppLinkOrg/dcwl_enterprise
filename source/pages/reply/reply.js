@@ -82,7 +82,7 @@ class Content extends AppBase {
       // return;
     }
 
-    if (that.Base.getMyData().quoteamount == undefined || that.Base.getMyData().quoteamount ==null) {
+    if (that.Base.getMyData().quoteamount == undefined || that.Base.getMyData().quoteamount == null || that.Base.getMyData().quoteamount == '') {
       this.Base.info("请输入报价");
       return;
     }

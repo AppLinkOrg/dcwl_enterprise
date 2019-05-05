@@ -23,7 +23,7 @@
           <image class='icon-30' src='{{uploadpath}}resource/phone2.png'></image>
         </view>
         <view class='flex-1 margin-left-20 flex-row flex-center' style='border-bottom:1rpx solid #e5e5e5;'>
-          <input class='padding-10 txt-black h5' placeholder='点击绑定手机号码' name='mobile' style='width:380rpx;' value='{{mobile}}'></input>
+          <input class='padding-10 txt-black h5' bindinput='mobileChange' placeholder='请输入手机号码' name='mobile' style='width:380rpx;' value='{{mobile}}'></input>
           <button class='btn h5' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo">绑定</button>
         </view>
       </view>

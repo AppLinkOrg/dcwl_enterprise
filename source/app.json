@@ -57,9 +57,9 @@
       }
     ]
   },
-
   "debug": true,
   "navigateToMiniProgramAppIdList": [
-    "wx9bd705284e9af21e"
-  ]
+    "wx75aeee915d1db2b5"
+  ],
+  "sitemapLocation": "sitemap.json"
 }

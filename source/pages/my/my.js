@@ -24,8 +24,10 @@ class Content extends AppBase {
     instapi.info({}, (info) => {
       that.Base.setMyData(info);
     });
+    var mobile = AppBase.UserInfo.mobile;
+    var name = AppBase.UserInfo.name;
     var memberApi = new MemberApi();
-    memberApi.info({}, (memberinfo) => {
+    memberApi.info({ mobile: mobile, name: name }, (memberinfo) => {
       if (memberinfo != null) {
         this.Base.setMyData({ memberinfo: memberinfo });
       }
@@ -41,12 +43,12 @@ class Content extends AppBase {
   
   jump() {
     wx.navigateToMiniProgram({
-      appId: 'wx9bd705284e9af21e',
+      appId: 'wx75aeee915d1db2b5',
       path: 'pages/home/home',
       extraData: {
         foo: 'bar'
       },
-      envVersion: 'develop',
+      envVersion: 'trial',
       success(res) {
         // 打开成功
       }

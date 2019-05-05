@@ -28,7 +28,8 @@ class Content extends AppBase {
 
       var memberApi = new MemberApi();
       memberApi.info({}, (info) => {
-        console.log(info)
+        
+        console.log(132132132);
         that.Base.setMyData({ userrole_id: info.company });
 
         var instapi = new InstApi();

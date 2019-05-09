@@ -27,8 +27,10 @@ class Content extends AppBase {
       })
 
       var memberApi = new MemberApi();
-      memberApi.info({}, (info) => {
-        
+      var mobile = AppBase.UserInfo.mobile;
+      var name = AppBase.UserInfo.name;
+      var info =AppBase.UserInfo.info ;
+      if(info){
         console.log(132132132);
         that.Base.setMyData({ userrole_id: info.company });
 
@@ -61,9 +63,45 @@ class Content extends AppBase {
               this.Base.setMyData({ list_1: ret });
             });
           })
-
         }
-      });
+      }
+      // memberApi.info({ mobile: mobile, name: name }, (info) => {
+        
+      //   console.log(132132132);
+      //   that.Base.setMyData({ userrole_id: info.company });
+
+      //   var instapi = new InstApi();
+      //   instapi.info({}, (servicelist) => {
+      //     that.Base.setMyData({ servicelist: servicelist });
+      //     WxParse.wxParse('content', 'html', servicelist.content, that, 10);
+      //   });
+
+      //   if (info.company == 2) {
+      //     var quoteferryapi = new QuoteferryApi();
+      //     quoteferryapi.listcompany({ status: 2 }, (ret) => {
+      //       this.Base.setMyData({ list_2: ret });
+      //     });
+      //     quoteferryapi.listcompany({ status: 1 }, (ret) => {
+      //       this.Base.setMyData({ list_1: ret });
+      //     });
+      //     quoteferryapi.listcompany({ status: 3 }, (ret) => {
+      //       this.Base.setMyData({ list_3: ret });
+      //     });
+      //   } else {
+      //     var memberApi = new MemberApi();
+      //     memberApi.info({}, (ret) => {
+
+      //       var quoteferryapi = new QuoteferryApi();
+      //       quoteferryapi.list({ status: 2, mobile: ret.mobile, inst_id: inst.id }, (ret) => {
+      //         this.Base.setMyData({ list_2: ret });
+      //       });
+      //       quoteferryapi.list({ status: 1, mobile: ret.mobile, inst_id: inst.id }, (ret) => {
+      //         this.Base.setMyData({ list_1: ret });
+      //       });
+      //     })
+
+      //   }
+      // });
     });
 
   

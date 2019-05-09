@@ -24,7 +24,25 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
+    that.Base.setMyData({
+      usertype: '普通'
+    });
   }
+
+  ordinaryLogin(){
+    var that = this;
+    that.Base.setMyData({
+      usertype: '普通'
+    });
+  }
+
+  adminLogin() {
+    var that = this;
+    that.Base.setMyData({
+      usertype: '管理'
+    });
+  }
+
 
   phonenoCallback(phoneno, e) {
     console.log(phoneno);
@@ -44,10 +62,6 @@ class Content extends AppBase {
       this.Base.info("请输入您的姓名");
       return;
     }
-
-    // if () {
-    //   data.mobile = that.Base.getMyData.mobile;
-    // }
     var reg = /^1[3|4|5|7|8][0-9]{9}$/; //验证规则
     var flag = reg.test(data.mobile); //true
 
@@ -87,13 +101,13 @@ class Content extends AppBase {
 
         api.info({
           mobile: mobile,
-          name: name
+          name: name,
+          usertype: that.Base.getMyData().usertype
         }, (info) => {
+          AppBase.UserInfo.info = info;
           console.log(info);
           console.log(1231321321321);
           if (ret.code == 0) {
-            
-            // if (info.userrole_id==2){
             wx.reLaunch({
               url: '/pages/home/home',
             })
@@ -111,4 +125,6 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.confirm = content.confirm;
 body.mobileChange = content.mobileChange;
+body.ordinaryLogin = content.ordinaryLogin; 
+body.adminLogin = content.adminLogin;
 Page(body)

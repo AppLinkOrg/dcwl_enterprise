@@ -26,12 +26,16 @@ class Content extends AppBase {
     });
     var mobile = AppBase.UserInfo.mobile;
     var name = AppBase.UserInfo.name;
+    var memberinfo = AppBase.UserInfo.info;
+    if (memberinfo){
+      this.Base.setMyData({ memberinfo: memberinfo });
+    }
     var memberApi = new MemberApi();
-    memberApi.info({ mobile: mobile, name: name }, (memberinfo) => {
-      if (memberinfo != null) {
-        this.Base.setMyData({ memberinfo: memberinfo });
-      }
-    });
+    // memberApi.info({ mobile: mobile, name: name }, (memberinfo) => {
+    //   if (memberinfo != null) {
+    //     this.Base.setMyData({ memberinfo: memberinfo });
+    //   }
+    // });
 
     var vehicleApi = new VehicleApi();
 
@@ -46,13 +50,36 @@ class Content extends AppBase {
       appId: 'wx75aeee915d1db2b5',
       path: 'pages/home/home',
       extraData: {
-        foo: 'bar'
+        foo: 'bar',
+        name: AppBase.UserInfo.name,
+        mobile: AppBase.UserInfo.mobile
+
       },
       envVersion: 'trial',
       success(res) {
         // 打开成功
+      
       }
     })
+  }
+
+  logout(){
+    wx.showModal({
+      content: '是否退出系统',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          AppBase.UserInfo.mobile = '';
+          AppBase.UserInfo.name = '';
+          wx.reLaunch({
+            url: '/pages/login/login'
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+   
   }
 }
 var content = new Content();

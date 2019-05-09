@@ -94,6 +94,7 @@
 </view>
 
 <view class="flex-row margin-top-100" wx:if="{{ctt==2}}">
+
   <view class="flex-1"></view>
   <view class=''>
     <view class='content margin-top padding-20 margin-bottom-20 ' wx:key='item' wx:for="{{list_6}}">

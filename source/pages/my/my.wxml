@@ -11,10 +11,14 @@
 
 <view class='white-block block' style='margin-top:40rpx;' wx:if='{{memberinfo.company == 2}}'>
   <navigator url='../orderList/orderList' class='item item-split txt-black'>全部订单</navigator>
-  <navigator url='../count/count'  class='item item-split txt-black'>订单统计</navigator>
+  <navigator url='../count/count' class='item item-split txt-black'>订单统计</navigator>
   <navigator url='../quoteferry/quoteferry' class='item item-split txt-black'>直接派单</navigator>
-  <navigator url='../inspectVehicle/inspectVehicle?type=1' class='item item-split txt-black flex-row '>车辆年检提醒 <view class='count bg-red text-center margin-left-20'>{{vehicle.inspect.length}}</view></navigator>
-  <navigator url='../inspectVehicle/inspectVehicle?type=2' class='item item-split txt-black flex-row'>车辆保险提醒 <view class='count bg-red text-center margin-left-20'>{{vehicle.insurance.length}}</view></navigator>
+  <navigator url='../inspectVehicle/inspectVehicle?type=1' class='item item-split txt-black flex-row '>车辆年检提醒
+    <view class='count bg-red text-center margin-left-20'>{{vehicle.inspect.length}}</view>
+  </navigator>
+  <navigator url='../inspectVehicle/inspectVehicle?type=2' class='item item-split txt-black flex-row'>车辆保险提醒
+    <view class='count bg-red text-center margin-left-20'>{{vehicle.insurance.length}}</view>
+  </navigator>
   <navigator class='item '>
     <button open-type="contact" class='clear-button '>联系客服</button>
   </navigator>
@@ -22,9 +26,10 @@
 
 <view class='white-block block' style='margin-top:40rpx;' wx:else>
   <navigator url='../orderList/orderList' class='item item-split txt-black'>订单</navigator>
-  <view  class='item item-split txt-black' bindtap='jump'>前往客户端查看全部订单</view>
+  <view class='item item-split txt-black' bindtap='jump'>前往客户端查看全部订单</view>
 
   <navigator class='item '>
     <button open-type="contact" class='clear-button  '>联系客服</button>
   </navigator>
 </view>
+<view class='item item-split txt-black' bindtap='logout'>注销</view>

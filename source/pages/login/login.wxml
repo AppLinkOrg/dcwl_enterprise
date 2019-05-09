@@ -7,14 +7,18 @@
     </view>
     
     <view class='flex-row column '>
-      <view class='txt-black margin-left-10'>欢迎.请登录</view>
+      <view class='txt-black margin-left-10 flex-row padding-10 radius-30' style='border:1rpx solid red;width:280rpx; justify-content: center;'>
+        <view class="h5 padding-right-20 {{usertype=='普通'?'txt-red':''}}" style='border-right:1rpx solid red;' bindtap='ordinaryLogin'>用户登录</view>
+        
+        <view class="h5 padding-left-20 {{usertype=='管理'?'txt-red':''}}" bindtap='adminLogin'>管理登录</view>
+      </view>
 
       <view class='flex-row flex-center margin-top'>
         <view class=''>
           <image class='icon-30' src='{{uploadpath}}resource/user.png'></image>
         </view>
         <view class='flex-1 margin-left-20'>
-          <input class='padding-10 txt-black h5' placeholder='请输入您的姓名' name='name' style='border-bottom:1rpx solid #e5e5e5;width:500rpx;'></input>
+          <input class='padding-10 txt-black h5' placeholder="请输入您的姓名" name='name' style='border-bottom:1rpx solid #e5e5e5;width:500rpx;'></input>
         </view>
       </view>
 

@@ -63,6 +63,11 @@ view, navigator, input, text, textarea {
   align-items: center;
 }
 
+ _center{ 
+  justify-content: center;
+  
+}
+
 .flex-column {
   align-content: center;
   align-items: center;
@@ -642,6 +647,10 @@ button[disabled][type=primary] {
 
 .radius-20 {
   border-radius: 20rpx;
+}
+
+.radius-30 {
+  border-radius: 30rpx;
 }
 
 .icon-10 {

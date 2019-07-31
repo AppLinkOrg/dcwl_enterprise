@@ -22,6 +22,7 @@ class Content extends AppBase {
     instapi.info({}, (inst) => {
       that.Base.setMyData(inst);
       that.Base.setMyData({ summary: inst.summary });
+
       wx.setNavigationBarTitle({
         title: inst.summary
       })
@@ -31,9 +32,11 @@ class Content extends AppBase {
       var name = AppBase.UserInfo.name;
       var info =AppBase.UserInfo.info ;
       if(info){
-        console.log(132132132);
+        console.log("略略略");
+        console.log(info.company)
         that.Base.setMyData({ userrole_id: info.company });
-
+        
+        console.log("略略略");
         var instapi = new InstApi();
         instapi.info({}, (servicelist) => {
           that.Base.setMyData({ servicelist: servicelist });

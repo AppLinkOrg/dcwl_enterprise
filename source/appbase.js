@@ -168,6 +168,8 @@ export class AppBase {
   onShow() {
     var that = this;
     var instapi = new InstApi();
+   
+
     instapi.resources({}, (res) => {
       this.Base.setMyData({
         res
@@ -179,6 +181,9 @@ export class AppBase {
 
         return;
       }
+
+       
+
       AppBase.InstInfo = instinfo;
       this.Base.setMyData({
         instinfo: instinfo
@@ -216,20 +221,35 @@ export class AppBase {
                 ApiConfig.SetToken(data.openid);
                 console.log("goto update info");
 
-                // memberapi.update(AppBase.UserInfo, () => {
-                //   console.log(AppBase.UserInfo);
-                //   that.Base.setMyData({ UserInfo: AppBase.UserInfo });
-                //   that.checkPermission();
-                // });
+            
 
 
               });
+
+              memberapi.getbossuserinfo({
+                code: res.code,
+                grant_type: "authorization_code"
+              }, data => {
+                console.log("here");
+                console.log(data);
+                AppBase.UserInfo.openid = data.openid;
+                AppBase.UserInfo.session_key = data.session_key;
+                console.log(AppBase.UserInfo);
+                ApiConfig.SetToken(data.openid);
+                console.log("goto update info");
+
+              });
+
+
+
+
             },
             fail: userloginres => {
               console.log("auth fail");
               console.log(userloginres);
               console.log(res);
               var memberapi = new MemberApi();
+
               memberapi.getuserinfo({
                 code: res.code,
                 grant_type: "authorization_code"
@@ -243,6 +263,19 @@ export class AppBase {
                 memberapi.update(AppBase.UserInfo, () => {
                   console.log("哈啊啊啊啊啊啊啊");
                   console.log(AppBase.UserInfo);
+
+
+                  memberapi.getbossuserinfo({
+                    code: res.code,
+                    grant_type: "authorization_code"
+                  }, data => {
+                    
+                   memberapi.bossupdate(AppBase.UserInfo, () => {
+                     
+                    });
+
+                  });
+
                   that.Base.setMyData({
                     UserInfo: AppBase.UserInfo
                   });
@@ -253,6 +286,8 @@ export class AppBase {
                 console.log("goto update info");
 
               });
+
+             
 
             }
           });

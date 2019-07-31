@@ -83,13 +83,18 @@ class Content extends AppBase {
     AppBase.UserInfo.name = name;
     var openid = AppBase.UserInfo.openid;
     var session_key = AppBase.UserInfo.session_key;
+
+    console.log(openid,"裂了");
+    console.log(session_key, "裂了");
+    //return;
+
     var api = new MemberApi();
     console.log(name);
     console.log(mobile);
     api.update(AppBase.UserInfo, () => {
-
       console.log("牛逼");
       console.log(AppBase.UserInfo);
+
       api.register({
         mobile: mobile,
         name: name,
@@ -116,6 +121,7 @@ class Content extends AppBase {
           }
         })
       })
+
     })
   }
 }

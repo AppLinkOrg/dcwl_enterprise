@@ -50,11 +50,13 @@
       <view class='txt-light tabtext  {{currenttab==0?"active":""}}'>新订单 {{list_1.length}}</view>
       <view class='flex-1'></view>
     </view>
+
     <view class='flex-1 tab  flex-row ' bindtap='changeTab' id="1">
       <view class='flex-1'></view>
       <view class='txt-light tabtext {{currenttab==1?"active":""}}'>已回复 {{list_2.length}}</view>
       <view class='flex-1'></view>
     </view>
+    
     <view class='flex-1 tab  flex-row ' bindtap='changeTab' id="2">
       <view class='flex-1'></view>
       <view class='txt-light tabtext {{currenttab==2?"active":""}}'>待处理 {{list_3.length}}</view>

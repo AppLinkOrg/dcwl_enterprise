@@ -38,7 +38,7 @@
   <view class="flex-1"></view>
 </view>
 
-<view class='padding-40' wx:else>
+<view class='padding-40' wx:if="{{userrole_id!=2}}">
   <button type='primary' bindtap='gotoFerryQuote'>获取报价</button>
 </view>
 

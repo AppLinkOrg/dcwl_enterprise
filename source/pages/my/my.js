@@ -24,12 +24,12 @@ class Content extends AppBase {
     instapi.info({}, (info) => {
       that.Base.setMyData(info);
     });
-    var mobile = AppBase.UserInfo.mobile;
-    var name = AppBase.UserInfo.name;
-    var memberinfo = AppBase.UserInfo.info;
-    if (memberinfo){
-      this.Base.setMyData({ memberinfo: memberinfo });
-    }
+    // var mobile = AppBase.UserInfo.mobile;
+    // var name = AppBase.UserInfo.name;
+    // var memberinfo = AppBase.UserInfo.info;
+    // if (memberinfo){
+    //   this.Base.setMyData({ memberinfo: memberinfo });
+    // }
     var memberApi = new MemberApi();
     // memberApi.info({ mobile: mobile, name: name }, (memberinfo) => {
     //   if (memberinfo != null) {
@@ -53,7 +53,6 @@ class Content extends AppBase {
         foo: 'bar',
         name: AppBase.UserInfo.name,
         mobile: AppBase.UserInfo.mobile
-
       },
       envVersion: 'trial',
       success(res) {

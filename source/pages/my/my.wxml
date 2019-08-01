@@ -1,9 +1,15 @@
-<view class='text-center memberinfo'>
+<view class='text-center memberinfo flex-row flex-column'>
   <view>
     <image class='avatar' src='{{uploadpath}}inst/{{logobackimg}}'></image>
   </view>
   <view class='nickname'>
-    {{memberinfo.name}},欢迎使用
+    {{memberinfo.nickName}},欢迎使用
+  </view>
+
+    <view class=' flex-row flex-center margin-top-20' style=' position:relative'>
+    <button wx:if='{{memberinfo.mobile==""}}' hover-class="clear-button2" class=' button clear-button  ' style=" " open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo"></button>
+    <view class="txt-white">{{memberinfo.mobile!=""?memberinfo.mobile:'点此获取手机号码'}}</view>
+
   </view>
 </view>
 
@@ -32,4 +38,4 @@
     <button open-type="contact" class='clear-button  '>联系客服</button>
   </navigator>
 </view>
-<view class='item item-split txt-black' bindtap='logout'>注销</view>
+<!-- <view class='item item-split txt-black' bindtap='logout'>注销</view> -->

@@ -160,7 +160,9 @@ export class AppBase {
         return;
       }
       AppBase.InstInfo = instinfo;
+
       this.Base.setMyData({ instinfo: instinfo });
+      
       if (this.Base.pagetitle == null) {
         this.Base.setPageTitle(instinfo);
       } else {
@@ -253,7 +255,24 @@ export class AppBase {
   checkPermission() {
     var memberapi = new MemberApi();
     var that = this;
+    // var instinfo=this.Base.instinfo;
+
+    console.log(AppBase.InstInfo.id,"机构ID")
+
     memberapi.info({}, (info) => {
+
+      memberapi.shanghulist({}, (shanghulist)=>{
+        var guanli = shanghulist.filter((item, idx) => {
+          return item.inst_id == AppBase.InstInfo.id & item.member_id == info.id
+        })
+        if(guanli.length>0){
+          this.Base.setMyData({ userrole_id:2})
+        }else{
+          this.Base.setMyData({ userrole_id: 0 })
+        }
+        console.log(guanli,"管理员列表")
+      })
+
 
       this.Base.setMyData({ memberinfo: info });
       that.onMyShow();
